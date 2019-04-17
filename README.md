@@ -2,7 +2,7 @@
 
 [PyTorch tutorials](https://github.com/pytorch/tutorials/) 的中文翻译笔记。
 
-点击这个链接直接访问其Web文档：<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
+点击这个链接直接访问这个项目生成的Web文档站点：<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
 
 官方教程以*带有[Sphinx-Doc][]扩展[rST][]格式注释的Python源代码*的形式制作了Web文档并导出[Jupyter][]笔记。
 
@@ -51,7 +51,7 @@ jupyter-notebook
 
 在 `notebooks` 目录可以找到所有笔记。
 
-## 构建 Web 文档
+## 构建Web文档站点
 
 这个项目使用 [MkDocs][] 将多个由笔记本导出 Markdown 文档生成一个 Web 文档。
 

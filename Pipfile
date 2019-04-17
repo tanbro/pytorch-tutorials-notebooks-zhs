@@ -18,6 +18,7 @@ mkdocs = "*"
 pygments = "*"
 pymdown-extensions = "*"
 mkdocs-material = "*"
+mkdocs-pdf-export-plugin = "*"
 
 [requires]
 python_version = "3.6"
