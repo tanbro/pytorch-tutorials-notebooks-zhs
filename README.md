@@ -2,6 +2,8 @@
 
 [PyTorch tutorials](https://github.com/pytorch/tutorials/) 的中文翻译笔记。
 
+点击这个链接直接访问其Web文档：<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
+
 官方教程以*带有[Sphinx-Doc][]扩展[rST][]格式注释的Python源代码*的形式制作了Web文档并导出[Jupyter][]笔记。
 
 而这个项目除了翻译，修改还有:
