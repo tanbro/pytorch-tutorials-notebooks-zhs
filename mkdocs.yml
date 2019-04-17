@@ -1,0 +1,27 @@
+site_name: PyTorch tutorials 中文翻译笔记
+repo_url: https://github.com/tanbro/pytorch-tutorials-notebooks-zhs
+
+theme:
+  name: 'material'
+  font: false
+  language: 'zh'
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+markdown_extensions:
+  - smarty
+  - sane_lists
+  - admonition
+  - codehilite:
+      linenums: True
+  - pymdownx.extra
+  - pymdownx.arithmatex
+  - pymdownx.smartsymbols
+
+nav:
+  - README: index.md
+  - 入门:
+    - 60分钟闪电战:
+      - 什么是PyTorch？: beginner/blitz/tensor_tutorial.md
+      - Autograd：自动微分: beginner/blitz/autograd_tutorial.md

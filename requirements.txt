@@ -1,0 +1,11 @@
+torch
+torchvision
+jupyter
+tqdm
+pandas
+matplotlib
+scikit-image
+mkdocs
+pygments
+pymdown-extensions
+mkdocs-material
