@@ -1,0 +1,743 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>Autograd：自动微分 - PyTorch tutorials 中文翻译笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#autograd-automatic-differentiation" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="PyTorch tutorials 中文翻译笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PyTorch tutorials 中文翻译笔记
+            </span>
+            <span class="md-header-nav__topic">
+              Autograd：自动微分
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="PyTorch tutorials 中文翻译笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PyTorch tutorials 中文翻译笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="README" class="md-nav__link">
+      README
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      入门
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        入门
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      60分钟闪电战
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        60分钟闪电战
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensor_tutorial/" title="什么是PyTorch？" class="md-nav__link">
+      什么是PyTorch？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Autograd：自动微分
+      </label>
+    
+    <a href="./" title="Autograd：自动微分" class="md-nav__link md-nav__link--active">
+      Autograd：自动微分
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tensor" title="张量(Tensor)" class="md-nav__link">
+    张量(Tensor)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradients" title="梯度(Gradients)" class="md-nav__link">
+    梯度(Gradients)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tensor" title="张量(Tensor)" class="md-nav__link">
+    张量(Tensor)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradients" title="梯度(Gradients)" class="md-nav__link">
+    梯度(Gradients)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/autograd_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</td></tr></table>
+
+<h1 id="autograd-automatic-differentiation">Autograd: 自动微分(Automatic differentiation)</h1>
+<p><code>autograd</code> 包 是 PyTorch 中所有神经网络的中心。
+我们首先简要查看，然后训练第一个神经网络。</p>
+<p><code>autograd</code> 包为 Tensor 上的所有运算提供自动微分(automatic differentiation)。
+它是一个“运行中定义”(define-by-run)的框架，这意味着反向传播(backpropagation)算法由代码在运行时定义，并且每个迭代都可以不同。</p>
+<p>我们通过更简单的术语的例子来看看这些。</p>
+<h2 id="tensor">张量(Tensor)</h2>
+<p><code>torch.Tensor</code> 是这个包的中心类。
+将它的 <code>.requires_grad</code> 属性设置为 <code>True</code>，即开始跟踪其上的所有运算。
+完成计算后调用 <code>.backward()</code> 即可自动完成梯度计算。
+该 tensor 梯度的累计和记录在 <code>.grad</code> 属性。</p>
+<p>要停止 tensor 的历史跟踪，可调用 <code>.detach()</code>，将它从计算历史中分离出来，防止它在将来的计算中被跟踪。</p>
+<p>要防止历史跟踪（和内存的使用），还可以将代码块放置在 <code>with torch.no_grad():</code> 中。
+这在评估模型时尤其有用，因为模型可能具有可训练的参数 <code>requires_grad=True</code> ，但进行评估时不需要梯度。</p>
+<p>还有一个类对于 autograd 实现非常重要——<code>Function</code>。</p>
+<p><code>Tensor</code> 和 <code>Function</code> 互相连接并构建一个非循环图，它将完整的计算历史进行了编码记录。
+每个 tensor 都有一个 <code>.grad_fn</code> 属性，该属性指向创建这个 <code>Tensor</code> 的 <code>Function</code> （除了用户创建的 Tensor——他们的 <code>grand_fn</code> 是 <code>None</code>）</p>
+<p>如需计算导数(derivatives)，可以调用 <code>Tensor</code> 的 <code>.backward()</code> 方法。
+如果 <code>Tensor</code> 是标量（即它包只含单元素数据），则 <code>backward()</code> 不需要指定参数，但是如果它有多个元素，则需要指定一个形状匹配的 tensor 作为 <code>gradient</code> 参数。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</td></tr></table>
+
+<p>创建一个 tensor，设置 <code>requires_grad=True</code> 跟踪它的计算</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[1., 1.],
+        [1., 1.]], requires_grad=True)
+</pre></div>
+</td></tr></table>
+
+<p>进行一次 tensor 运算：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[3., 3.],
+        [3., 3.]], grad_fn=&lt;AddBackward0&gt;)
+</pre></div>
+</td></tr></table>
+
+<p><code>y</code> 是这个运算的结果张量，所以它也有 <code>grad_fn</code>。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&lt;AddBackward0 object at 0x7f0e0159a438&gt;
+</pre></div>
+</td></tr></table>
+
+<p>对 <code>y</code> 做更多运算</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[27., 27.],
+        [27., 27.]], grad_fn=&lt;MulBackward0&gt;) tensor(27., grad_fn=&lt;MeanBackward1&gt;)
+</pre></div>
+</td></tr></table>
+
+<p><code>.requires_grad_( ... )</code> 原位改变了已有 Tensor 的 <code>requires_grad</code> 标志。该输入标志的默认值是 <code>False</code>。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">((</span><span class="n">a</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>False
+True
+&lt;SumBackward0 object at 0x7f0d577bce80&gt;
+</pre></div>
+</td></tr></table>
+
+<h2 id="gradients">梯度(Gradients)</h2>
+<p>现在进行反向传播(backprop)。
+由于 <code>out</code> 包含单个标量，<code>out.backward()</code>相当于 <code>out.backward(torch.tensor(1.))</code>。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">out</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<p>输出梯度 <code>d(out)/dx</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[4.5000, 4.5000],
+        [4.5000, 4.5000]])
+</pre></div>
+</td></tr></table>
+
+<p>得到一个 <code>4.5</code> 矩阵。</p>
+<p>将 <code>out</code> <em>Tensor</em> 设为 “<span><span class="MathJax_Preview">o</span><script type="math/tex">o</script></span>”。
+我们有</p>
+<p><span><span class="MathJax_Preview">o = \frac{1}{4}\sum_i z_i</span><script type="math/tex">o = \frac{1}{4}\sum_i z_i</script></span></p>
+<p><span><span class="MathJax_Preview">z_i = 3(x_i+2)^2</span><script type="math/tex">z_i = 3(x_i+2)^2</script></span></p>
+<p>以及</p>
+<p><span><span class="MathJax_Preview">z_i\bigr\rvert_{x_i=1} = 27</span><script type="math/tex">z_i\bigr\rvert_{x_i=1} = 27</script></span></p>
+<p>所以，</p>
+<p><span><span class="MathJax_Preview">\frac{\partial o}{\partial x_i} = \frac{3}{2}(x_i+2)</span><script type="math/tex">\frac{\partial o}{\partial x_i} = \frac{3}{2}(x_i+2)</script></span></p>
+<p>那么</p>
+<p><span><span class="MathJax_Preview">\frac{\partial o}{\partial x_i}\bigr\rvert_{x_i=1} = \frac{9}{2} = 4.5</span><script type="math/tex">\frac{\partial o}{\partial x_i}\bigr\rvert_{x_i=1} = \frac{9}{2} = 4.5</script></span></p>
+<p>在数学上，若有向量值函数 <span><span class="MathJax_Preview">\vec{y}=f(\vec{x})</span><script type="math/tex">\vec{y}=f(\vec{x})</script></span>，
+则 <span><span class="MathJax_Preview">\vec{y}</span><script type="math/tex">\vec{y}</script></span> 的梯度是关于 <span><span class="MathJax_Preview">\vec{x}</span><script type="math/tex">\vec{x}</script></span> 的雅可比矩阵：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{align}J=\left(\begin{array}{ccc}
+   \frac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \frac{\partial y_{1}}{\partial x_{n}}\\
+   \vdots &amp; \ddots &amp; \vdots\\
+   \frac{\partial y_{m}}{\partial x_{1}} &amp; \cdots &amp; \frac{\partial y_{m}}{\partial x_{n}}
+   \end{array}\right)\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}J=\left(\begin{array}{ccc}
+   \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}}\\
+   \vdots & \ddots & \vdots\\
+   \frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+   \end{array}\right)\end{align}
+</script>
+</div>
+<p>一般来说，<code>torch.autograd</code> 就是一个计算向量雅可比积的引擎。
+也就是说，对给定的任意向量
+<span><span class="MathJax_Preview">v=\left(\begin{array}{cccc} v_{1} &amp; v_{2} &amp; \cdots &amp; v_{m}\end{array}\right)^{T}</span><script type="math/tex">v=\left(\begin{array}{cccc} v_{1} & v_{2} & \cdots & v_{m}\end{array}\right)^{T}</script></span>，
+计算 <span><span class="MathJax_Preview">v^{T}\cdot J</span><script type="math/tex">v^{T}\cdot J</script></span> 的积。
+如果 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 恰好是标量函数 <span><span class="MathJax_Preview">l=g\left(\vec{y}\right)</span><script type="math/tex">l=g\left(\vec{y}\right)</script></span> 的梯度，换而言之，
+<span><span class="MathJax_Preview">v=\left(\begin{array}{ccc}\frac{\partial l}{\partial y_{1}} &amp; \cdots &amp; \frac{\partial l}{\partial y_{m}}\end{array}\right)^{T}</span><script type="math/tex">v=\left(\begin{array}{ccc}\frac{\partial l}{\partial y_{1}} & \cdots & \frac{\partial l}{\partial y_{m}}\end{array}\right)^{T}</script></span>，
+那么，由链规则(chain rule)可知，向量雅可比积是 <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 关于 <span><span class="MathJax_Preview">\vec{x}</span><script type="math/tex">\vec{x}</script></span> 的梯度：</p>
+<div>
+<div class="MathJax_Preview">
+\begin{align}J^{T}\cdot v=\left(\begin{array}{ccc}
+   \frac{\partial y_{1}}{\partial x_{1}} &amp; \cdots &amp; \frac{\partial y_{m}}{\partial x_{1}}\\
+   \vdots &amp; \ddots &amp; \vdots\\
+   \frac{\partial y_{1}}{\partial x_{n}} &amp; \cdots &amp; \frac{\partial y_{m}}{\partial x_{n}}
+   \end{array}\right)\left(\begin{array}{c}
+   \frac{\partial l}{\partial y_{1}}\\
+   \vdots\\
+   \frac{\partial l}{\partial y_{m}}
+   \end{array}\right)=\left(\begin{array}{c}
+   \frac{\partial l}{\partial x_{1}}\\
+   \vdots\\
+   \frac{\partial l}{\partial x_{n}}
+   \end{array}\right)\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}J^{T}\cdot v=\left(\begin{array}{ccc}
+   \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{1}}\\
+   \vdots & \ddots & \vdots\\
+   \frac{\partial y_{1}}{\partial x_{n}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+   \end{array}\right)\left(\begin{array}{c}
+   \frac{\partial l}{\partial y_{1}}\\
+   \vdots\\
+   \frac{\partial l}{\partial y_{m}}
+   \end{array}\right)=\left(\begin{array}{c}
+   \frac{\partial l}{\partial x_{1}}\\
+   \vdots\\
+   \frac{\partial l}{\partial x_{n}}
+   \end{array}\right)\end{align}
+</script>
+</div>
+<p>(注意 <span><span class="MathJax_Preview">v^{T}\cdot J</span><script type="math/tex">v^{T}\cdot J</script></span> 给出了一个行向量，它可被视作 <span><span class="MathJax_Preview">J^{T}\cdot v</span><script type="math/tex">J^{T}\cdot v</script></span> 列向量。)</p>
+<p>向量雅可比积的这些性质使得将外部梯度送到非标量输出模型中变得非常方便。</p>
+<p>现在，我们看一个向量雅可比积的例子：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">y</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([ -195.7767, -1443.5500,    69.6174], grad_fn=&lt;MulBackward0&gt;)
+</pre></div>
+</td></tr></table>
+
+<p>现在，在这种情况下，<code>y</code> 不再是标量了。
+<code>torch.autograd</code> 无法直接计算完整的向量雅可比行列式，
+但是如果我们只是需要向量-向量-雅可比积, 只要把向量传给参数 <code>backward</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([2.0480e+02, 2.0480e+03, 2.0480e-01])
+</pre></div>
+</td></tr></table>
+
+<p>另外，用 <code>.requires_grad=True:</code> 包含代码块可以让 autograd 停止跟踪 Tensor 的历史</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="k">print</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>True
+True
+False
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p><strong>延后阅读:</strong></p>
+</blockquote>
+<p><code>autograd</code> 和 <code>Function</code> 的文档在 <a href="https://pytorch.org/docs/autograd">https://pytorch.org/docs/autograd</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tensor_tutorial/" title="什么是PyTorch？" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                什么是PyTorch？
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
