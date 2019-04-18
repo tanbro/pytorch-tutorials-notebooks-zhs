@@ -333,8 +333,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#numpy" title="NumPy 转换" class="md-nav__link">
-    NumPy 转换
+  <a href="#numpy" title="NumPy 互转" class="md-nav__link">
+    NumPy 互转
   </a>
   
     <nav class="md-nav">
@@ -360,8 +360,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cuda-tensors" title="CUDA Tensors" class="md-nav__link">
-    CUDA Tensors
+  <a href="#cuda-tensor" title="CUDA Tensor" class="md-nav__link">
+    CUDA Tensor
   </a>
   
 </li>
@@ -385,6 +385,42 @@
   <li class="md-nav__item">
     <a href="../autograd_tutorial/" title="Autograd：自动微分" class="md-nav__link">
       Autograd：自动微分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../neural_networks_tutorial/" title="神经网络" class="md-nav__link">
+      神经网络
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cifar10_tutorial/" title="训练分类器" class="md-nav__link">
+      训练分类器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_parallel_tutorial/" title="数据并行" class="md-nav__link">
+      数据并行
     </a>
   </li>
 
@@ -447,8 +483,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#numpy" title="NumPy 转换" class="md-nav__link">
-    NumPy 转换
+  <a href="#numpy" title="NumPy 互转" class="md-nav__link">
+    NumPy 互转
   </a>
   
     <nav class="md-nav">
@@ -474,8 +510,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cuda-tensors" title="CUDA Tensors" class="md-nav__link">
-    CUDA Tensors
+  <a href="#cuda-tensor" title="CUDA Tensor" class="md-nav__link">
+    CUDA Tensor
   </a>
   
 </li>
@@ -499,11 +535,7 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/tensor_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</pre></div>
-</td></tr></table>
-
-<h1 id="pytorch">什么是 PyTorch?</h1>
+                <h1 id="pytorch">什么是PyTorch?</h1>
 <p>它是一个基于Python的科学计算软件包，针对两组受众：</p>
 <ul>
 <li>NumPy 的替代品，可以使用 GPU 的强大功能</li>
@@ -511,7 +543,7 @@
 </ul>
 <h2 id="_1">开始</h2>
 <h3 id="tensor">张量(Tensor)</h3>
-<p>Tensor(张量)类似于 NumPy 的 ndarrays(多维数组)，不过 Tensor 可以使用 GPU 加速计算。</p>
+<p>Tensor(张量)类似于NumPy的ndarrays(多维数组)，不过Tensor可以使用GPU加速计算。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -529,11 +561,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[-1.2720e+08,  4.5715e-41, -1.2720e+08],
-        [ 4.5715e-41,  0.0000e+00,  0.0000e+00],
-        [ 0.0000e+00,  0.0000e+00,  3.5873e-43],
-        [ 0.0000e+00,  1.7937e-43,  0.0000e+00],
-        [ 0.0000e+00,  0.0000e+00,  0.0000e+00]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[-2.6621e+09,  4.5587e-41, -2.6621e+09],
+        [ 4.5587e-41,  3.3129e-18,  2.6302e+20],
+        [ 6.1949e-04,  2.5640e-09,  1.6408e-07],
+        [ 3.1472e+12,  2.7095e-09,  1.0374e-08],
+        [ 6.4830e-10,  1.2398e+16,  1.8503e+20]])
 </pre></div>
 </td></tr></table>
 
@@ -548,11 +580,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[0.7537, 0.3162, 0.4814],
-        [0.4303, 0.2807, 0.0952],
-        [0.6169, 0.8890, 0.9761],
-        [0.8800, 0.2198, 0.3990],
-        [0.2434, 0.9329, 0.5439]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[0.8017, 0.1650, 0.3771],
+        [0.8411, 0.4406, 0.3873],
+        [0.3508, 0.8021, 0.5265],
+        [0.0255, 0.8830, 0.0428],
+        [0.1457, 0.5150, 0.1314]])
 </pre></div>
 </td></tr></table>
 
@@ -613,11 +645,11 @@
         [1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.]], dtype=torch.float64)
-tensor([[ 0.3971, -0.0788, -1.4905],
-        [-0.1972,  2.7935, -1.8287],
-        [-0.9228,  0.2789, -1.0781],
-        [ 0.4243, -2.0406, -0.5721],
-        [-0.8084, -0.3740, -0.5767]])
+tensor([[ 0.4672, -2.5856, -0.5848],
+        [-0.0800, -0.0157, -0.1485],
+        [-1.4250,  1.9369, -1.9591],
+        [ 0.2027, -0.4884, -0.9408],
+        [ 1.0423,  0.9927, -0.4951]])
 </pre></div>
 </td></tr></table>
 
@@ -647,11 +679,11 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.0884,  0.3262, -0.6358],
-        [-0.1748,  3.5457, -1.4837],
-        [-0.3640,  0.7406, -0.4035],
-        [ 1.2890, -1.2470,  0.2520],
-        [ 0.1289,  0.4050,  0.0856]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.4545, -1.7998, -0.3246],
+        [-0.0237,  0.9005,  0.3812],
+        [-1.0698,  2.0101, -1.0791],
+        [ 0.5078,  0.4077, -0.0533],
+        [ 1.8212,  1.6021, -0.3893]])
 </pre></div>
 </td></tr></table>
 
@@ -664,11 +696,11 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.0884,  0.3262, -0.6358],
-        [-0.1748,  3.5457, -1.4837],
-        [-0.3640,  0.7406, -0.4035],
-        [ 1.2890, -1.2470,  0.2520],
-        [ 0.1289,  0.4050,  0.0856]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.4545, -1.7998, -0.3246],
+        [-0.0237,  0.9005,  0.3812],
+        [-1.0698,  2.0101, -1.0791],
+        [ 0.5078,  0.4077, -0.0533],
+        [ 1.8212,  1.6021, -0.3893]])
 </pre></div>
 </td></tr></table>
 
@@ -685,11 +717,11 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.0884,  0.3262, -0.6358],
-        [-0.1748,  3.5457, -1.4837],
-        [-0.3640,  0.7406, -0.4035],
-        [ 1.2890, -1.2470,  0.2520],
-        [ 0.1289,  0.4050,  0.0856]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.4545, -1.7998, -0.3246],
+        [-0.0237,  0.9005,  0.3812],
+        [-1.0698,  2.0101, -1.0791],
+        [ 0.5078,  0.4077, -0.0533],
+        [ 1.8212,  1.6021, -0.3893]])
 </pre></div>
 </td></tr></table>
 
@@ -706,11 +738,11 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.0884,  0.3262, -0.6358],
-        [-0.1748,  3.5457, -1.4837],
-        [-0.3640,  0.7406, -0.4035],
-        [ 1.2890, -1.2470,  0.2520],
-        [ 0.1289,  0.4050,  0.0856]])
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 1.4545, -1.7998, -0.3246],
+        [-0.0237,  0.9005,  0.3812],
+        [-1.0698,  2.0101, -1.0791],
+        [ 0.5078,  0.4077, -0.0533],
+        [ 1.8212,  1.6021, -0.3893]])
 </pre></div>
 </td></tr></table>
 
@@ -724,7 +756,7 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([-0.0788,  2.7935,  0.2789, -2.0406, -0.3740])
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([-2.5856, -0.0157,  1.9369, -0.4884,  0.9927])
 </pre></div>
 </td></tr></table>
 
@@ -753,8 +785,8 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 </td></tr></table>
 
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([-0.8057])
--0.8056557774543762
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([1.0215])
+1.0214648246765137
 </pre></div>
 </td></tr></table>
 
@@ -762,7 +794,7 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 <p><strong>延后阅读</strong>：</p>
 <p>100+ Tensor 运算，包括：移调、索引、切片、数学运算、线性代数、随机数等，可参考 <a href="https://pytorch.org/docs/torch">https://pytorch.org/docs/torch</a></p>
 </blockquote>
-<h2 id="numpy">NumPy 转换</h2>
+<h2 id="numpy">NumPy 互转</h2>
 <p>将 Torch Tensor 转换为 NumPy 数组（反之亦然）是一件轻而易举的事。</p>
 <p>Torch Tensor 和 NumPy 数组共享其底层内存位置，更改一个会导致另一个的改变。</p>
 <h3 id="torch-tensor-numpy">将 Torch Tensor 转换为 NumPy 数组</h3>
@@ -824,8 +856,8 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 </td></tr></table>
 
 <p>除了 <code>CharTensor</code> ，所有 CPU 上的 Tensor 都可以和 Numpy 互相转换。</p>
-<h2 id="cuda-tensors">CUDA Tensors</h2>
-<p>可以使用 <code>.to</code> 方法移动 Tensors 到任何设备。</p>
+<h2 id="cuda-tensor">CUDA Tensor</h2>
+<p>可以使用 <code>.to</code> 方法移动Tensor对象到任何设备。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -847,8 +879,8 @@ tensor([[ 0.3971, -0.0788, -1.4905],
 </td></tr></table>
 
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([0.1943], device=&#39;cuda:0&#39;)
-tensor([0.1943], dtype=torch.float64)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([2.0215], device=&#39;cuda:0&#39;)
+tensor([2.0215], dtype=torch.float64)
 </pre></div>
 </td></tr></table>
                 

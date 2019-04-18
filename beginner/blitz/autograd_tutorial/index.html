@@ -342,6 +342,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../neural_networks_tutorial/" title="神经网络" class="md-nav__link">
+      神经网络
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cifar10_tutorial/" title="训练分类器" class="md-nav__link">
+      训练分类器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_parallel_tutorial/" title="数据并行" class="md-nav__link">
+      数据并行
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -405,11 +441,7 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/autograd_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</pre></div>
-</td></tr></table>
-
-<h1 id="autograd-automatic-differentiation">Autograd: 自动微分(Automatic differentiation)</h1>
+                <h1 id="autograd-automatic-differentiation">Autograd: 自动微分(Automatic differentiation)</h1>
 <p><code>autograd</code> 包 是 PyTorch 中所有神经网络的中心。
 我们首先简要查看，然后训练第一个神经网络。</p>
 <p><code>autograd</code> 包为 Tensor 上的所有运算提供自动微分(automatic differentiation)。
@@ -463,7 +495,7 @@
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&lt;AddBackward0 object at 0x7f0e0159a438&gt;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&lt;AddBackward0 object at 0x7f10a069dd68&gt;
 </pre></div>
 </td></tr></table>
 
@@ -505,7 +537,7 @@
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>False
 True
-&lt;SumBackward0 object at 0x7f0d577bce80&gt;
+&lt;SumBackward0 object at 0x7f0ff5fc2240&gt;
 </pre></div>
 </td></tr></table>
 
@@ -614,7 +646,7 @@ True
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([ -195.7767, -1443.5500,    69.6174], grad_fn=&lt;MulBackward0&gt;)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([-977.1336,  264.0834, -116.1632], grad_fn=&lt;MulBackward0&gt;)
 </pre></div>
 </td></tr></table>
 
@@ -694,6 +726,20 @@ False
             </div>
           </a>
         
+        
+          <a href="../neural_networks_tutorial/" title="神经网络" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                神经网络
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

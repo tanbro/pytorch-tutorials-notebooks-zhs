@@ -266,8 +266,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#web" title="构建 Web 文档" class="md-nav__link">
-    构建 Web 文档
+  <a href="#web" title="构建Web文档站点" class="md-nav__link">
+    构建Web文档站点
   </a>
   
 </li>
@@ -352,6 +352,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="beginner/blitz/neural_networks_tutorial/" title="神经网络" class="md-nav__link">
+      神经网络
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="beginner/blitz/cifar10_tutorial/" title="训练分类器" class="md-nav__link">
+      训练分类器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="beginner/blitz/data_parallel_tutorial/" title="数据并行" class="md-nav__link">
+      数据并行
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -397,8 +433,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#web" title="构建 Web 文档" class="md-nav__link">
-    构建 Web 文档
+  <a href="#web" title="构建Web文档站点" class="md-nav__link">
+    构建Web文档站点
   </a>
   
 </li>
@@ -426,12 +462,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/README.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="pytorch-tutorials-notebooks-zhs">pytorch-tutorials-notebooks-zhs</h1>
 <p><a href="https://github.com/pytorch/tutorials/">PyTorch tutorials</a> 的中文翻译笔记。</p>
-<p>点击这个链接直接访问其Web文档：<a href="https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/">https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/</a></p>
+<p>点击这个链接直接访问这个项目生成的Web文档站点：<a href="https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/">https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/</a></p>
 <p>官方教程以<em>带有<a href="http://www.sphinx-doc.org/">Sphinx-Doc</a>扩展<a href="reStructuredText" title="reStructuredText (reST)">rST</a>格式注释的Python源代码</em>的形式制作了Web文档并导出<a href="https://jupyter.org/">Jupyter</a>笔记。</p>
 <p>而这个项目除了翻译，修改还有:</p>
 <ul>
@@ -475,12 +511,12 @@
 </td></tr></table>
 
 <p>在 <code>notebooks</code> 目录可以找到所有笔记。</p>
-<h2 id="web">构建 Web 文档</h2>
+<h2 id="web">构建Web文档站点</h2>
 <p>这个项目使用 <a href="https://www.mkdocs.org">MkDocs</a> 将多个由笔记本导出 Markdown 文档生成一个 Web 文档。</p>
 <ol>
 <li>把笔记导出为Markdown文件:</li>
 </ol>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">python tools/nb_export_mk.py</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">python tools/nbtomd.py</span>
 </pre></div>
 </td></tr></table>
 

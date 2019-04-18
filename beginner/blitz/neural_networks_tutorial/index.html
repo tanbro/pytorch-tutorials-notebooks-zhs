@@ -36,7 +36,7 @@
     
     
       
-        <title>Neural networks tutorial - PyTorch tutorials 中文翻译笔记</title>
+        <title>神经网络 - PyTorch tutorials 中文翻译笔记</title>
       
     
     
@@ -115,7 +115,7 @@
               PyTorch tutorials 中文翻译笔记
             </span>
             <span class="md-header-nav__topic">
-              Neural networks tutorial
+              神经网络
             </span>
           
         </div>
@@ -235,10 +235,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       入门
@@ -254,10 +256,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       60分钟闪电战
@@ -289,6 +293,101 @@
   <li class="md-nav__item">
     <a href="../autograd_tutorial/" title="Autograd：自动微分" class="md-nav__link">
       Autograd：自动微分
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        神经网络
+      </label>
+    
+    <a href="./" title="神经网络" class="md-nav__link md-nav__link--active">
+      神经网络
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="定义网络" class="md-nav__link">
+    定义网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="损失函数" class="md-nav__link">
+    损失函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="反向传播" class="md-nav__link">
+    反向传播
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="更新权重" class="md-nav__link">
+    更新权重
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cifar10_tutorial/" title="训练分类器" class="md-nav__link">
+      训练分类器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_parallel_tutorial/" title="数据并行" class="md-nav__link">
+      数据并行
     </a>
   </li>
 
@@ -370,11 +469,7 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/neural_networks_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</pre></div>
-</td></tr></table>
-
-<h1 id="neural-networks">神经网络(Neural Networks)</h1>
+                <h1 id="neural-networks">神经网络(Neural Networks)</h1>
 <p>可以使用 <code>torch.nn</code> 包构造神经网络。</p>
 <p>现在我们已经初步了解了 <code>autograd</code>，<code>nn</code> 依靠 <code>autograd</code> 定义模型以及求微分。
 一个 <code>nn.Module</code> 包含多个层，一个返回 <code>output</code> 的 <code>forward(input)</code> 方法。</p>
@@ -516,8 +611,8 @@ torch.Size([6, 1, 5, 5])
 </td></tr></table>
 
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[-0.1283, -0.0358, -0.1374,  0.0241,  0.1193, -0.0086,  0.1422, -0.0922,
-         -0.1091,  0.0755]], grad_fn=&lt;AddmmBackward&gt;)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor([[ 0.0108, -0.0120, -0.0415, -0.0964,  0.0957,  0.0217, -0.1095,  0.0581,
+          0.0173, -0.0540]], grad_fn=&lt;AddmmBackward&gt;)
 </pre></div>
 </td></tr></table>
 
@@ -569,7 +664,7 @@ torch.Size([6, 1, 5, 5])
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor(1.0566, grad_fn=&lt;MseLossBackward&gt;)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tensor(1.4750, grad_fn=&lt;MseLossBackward&gt;)
 </pre></div>
 </td></tr></table>
 
@@ -596,9 +691,9 @@ torch.Size([6, 1, 5, 5])
 
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&lt;MseLossBackward object at 0x7fe026ecc278&gt;
-&lt;AddmmBackward object at 0x7fe026ecc320&gt;
-&lt;AccumulateGrad object at 0x7fe026ecc278&gt;
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&lt;MseLossBackward object at 0x7fa1140c1fd0&gt;
+&lt;AddmmBackward object at 0x7fa1140c6080&gt;
+&lt;AccumulateGrad object at 0x7fa1140c1fd0&gt;
 </pre></div>
 </td></tr></table>
 
@@ -632,7 +727,7 @@ torch.Size([6, 1, 5, 5])
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>conv1.bias.grad before backward
 tensor([0., 0., 0., 0., 0., 0.])
 conv1.bias.grad after backward
-tensor([-0.0024,  0.0039, -0.0143,  0.0135,  0.0240,  0.0071])
+tensor([-0.0245, -0.0181,  0.0134,  0.0136,  0.0242,  0.0009])
 </pre></div>
 </td></tr></table>
 
@@ -705,6 +800,41 @@ tensor([-0.0024,  0.0039, -0.0143,  0.0135,  0.0240,  0.0071])
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../autograd_tutorial/" title="Autograd：自动微分" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Autograd：自动微分
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cifar10_tutorial/" title="训练分类器" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                训练分类器
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
