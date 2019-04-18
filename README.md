@@ -58,7 +58,7 @@ jupyter-notebook
 1. 把笔记导出为Markdown文件:
 
    ```console
-   python tools/nb_to_md.py
+   python tools/nbtomd.py
    ```
 
 1. 构建Web文档

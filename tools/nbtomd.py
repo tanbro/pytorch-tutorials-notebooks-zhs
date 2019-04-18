@@ -3,10 +3,9 @@
 
 import argparse
 import os
+import subprocess
 import sys
 from glob import iglob
-
-from nbconvert import MarkdownExporter
 
 
 def parse_arguments():  # type:()->argparse.Namespace
@@ -26,20 +25,16 @@ def parse_arguments():  # type:()->argparse.Namespace
 
 
 def execute(arguments):
-    exporter = MarkdownExporter()
-    input_dir = os.path.normpath(arguments.input_dir)
-    output_dir = os.path.normpath(arguments.output_dir)
-    search_pat = os.path.join(input_dir, '**', '*.ipynb')
-    for path in iglob(search_pat, recursive=True):
-        dirname, filename = os.path.split(path)
-        subdir = os.path.relpath(dirname, input_dir)
-        filename, _ = os.path.splitext(filename)
-        output_file = os.path.join(output_dir, subdir, f'{filename}.md')
-        os.makedirs(os.path.join(output_dir, subdir), exist_ok=True)
-        print(f'{path} ==> {output_file}')
-        content, _ = exporter.from_filename(path)
-        with open(output_file, 'w') as fp:
-            print(content, file=fp)
+    root_input_dir = os.path.normpath(arguments.input_dir)
+    root_output_dir = os.path.normpath(arguments.output_dir)
+    search_pat = os.path.join(root_input_dir, '**', '*.ipynb')
+    for filepath in iglob(search_pat, recursive=True):
+        dirname, _ = os.path.split(filepath)
+        subdir = os.path.relpath(dirname, root_input_dir)
+        output_dir = os.path.join(root_output_dir, subdir)
+        cmd = 'jupyter-nbconvert --to markdown --output-dir "{0}" "{1}"'.format(
+            output_dir, filepath)
+        subprocess.run(cmd, shell=True, check=True)
 
 
 def main():
