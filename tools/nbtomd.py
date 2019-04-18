@@ -32,9 +32,13 @@ def execute(arguments):
         dirname, _ = os.path.split(filepath)
         subdir = os.path.relpath(dirname, root_input_dir)
         output_dir = os.path.join(root_output_dir, subdir)
-        cmd = 'jupyter-nbconvert --to markdown --output-dir "{0}" "{1}"'.format(
-            output_dir, filepath)
-        subprocess.run(cmd, shell=True, check=True)
+        args = [
+            'jupyter-nbconvert',
+            '--to', 'markdown',
+            '--output-dir', output_dir,
+            filepath
+        ]
+        subprocess.run(args, check=True)
 
 
 def main():
