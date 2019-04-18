@@ -1,7 +1,8 @@
 *.lock
+data/
 
-docs/*
-!docs/index.md
+/docs/*
+!/docs/index.md
 
 
 # Byte-compiled / optimized / DLL files

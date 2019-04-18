@@ -26,7 +26,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
 
 nav:
-  - README: index.md
+  - README: README.md
   - 入门:
     - 60分钟闪电战:
       - 什么是PyTorch？: beginner/blitz/tensor_tutorial.md
