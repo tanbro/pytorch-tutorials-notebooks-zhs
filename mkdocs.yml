@@ -32,4 +32,4 @@ nav:
       - 什么是PyTorch？: beginner/blitz/tensor_tutorial.md
       - Autograd：自动微分: beginner/blitz/autograd_tutorial.md
       - 神经网络: beginner/blitz/neural_networks_tutorial.md
-      - 训练一个分类器: beginner/blitz/cifar10_tutorial.md
+      - 训练分类器: beginner/blitz/cifar10_tutorial.md
