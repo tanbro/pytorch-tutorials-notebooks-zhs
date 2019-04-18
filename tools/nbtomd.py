@@ -24,7 +24,7 @@ def parse_arguments():  # type:()->argparse.Namespace
     return parser.parse_args()
 
 
-def execute(arguments):
+def execute(arguments):  # type:(argparse.Namespace)->None
     root_input_dir = os.path.normpath(arguments.input_dir)
     root_output_dir = os.path.normpath(arguments.output_dir)
     search_pat = os.path.join(root_input_dir, '**', '*.ipynb')
