@@ -580,8 +580,7 @@
                 <h1 id="_1">可选：数据并行</h1>
 <p><strong>作者</strong>：<a href="https://github.com/hunkim">Sung Kim</a> 与 <a href="https://github.com/jennykang">Jenny Kang</a></p>
 <p>在这个教程中，我们将学习如何通过<code>DataParallel</code>使用多GPU。</p>
-<p>It&rsquo;s very easy to use GPUs with PyTorch. You can put the model on a GPU:
-在PyTorch中使用GPU非常简单。可以把模型放到GPU：</p>
+<p>在PyTorch中使用GPU非常简单。可以把模型放到GPU：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -668,10 +667,7 @@
 </td></tr></table>
 
 <h2 id="_4">简单模型</h2>
-<p>For the demo, our model just gets an input, performs a linear operation, and
-gives an output. However, you can use <code>DataParallel</code> on any model (CNN, RNN,
-Capsule Net etc.)
-在这个演示中，我们的模型只要输入，执行一次现行运算，并给出输出。
+<p>在这个演示中，我们的模型只要输入，执行一次现行运算，并给出输出。
 另外，<code>DataParallel</code>在任何模型(CNN，RNN，Capsule Net 等)上都可用</p>
 <p>我们在模型中放置了一个print语句来监视输入和输出张量的大小。
 请注意批次0中打印的内容。</p>
