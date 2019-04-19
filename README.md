@@ -56,7 +56,7 @@ jupyter-lab
 jupyter-notebook
 ```
 
-在 `notebooks` 目录可以找到所有笔记。
+在Web界面中进入`notebooks`目录可以找到所有笔记。
 
 ## 构建Web文档站点
 
