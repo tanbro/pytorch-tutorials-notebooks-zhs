@@ -8,12 +8,12 @@ plugins:
         combined: True
 
 theme:
-  name: 'material'
-  font: false
-  language: 'zh'
+  name: material
+  font: False
+  language: zh
 
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML
 
 markdown_extensions:
   - smarty
