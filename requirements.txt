@@ -1,6 +1,7 @@
 torch
 torchvision
 jupyter
+jupyterlab
 tqdm
 pandas
 matplotlib
@@ -10,4 +11,3 @@ pygments
 pymdown-extensions
 mkdocs-material
 mkdocs-pdf-export-plugin
-
