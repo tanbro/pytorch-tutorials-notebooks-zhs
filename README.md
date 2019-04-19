@@ -4,22 +4,22 @@
 
 点击这个链接直接访问这个项目生成的Web文档站点：<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
 
-官方教程以*带有[Sphinx-Doc][]扩展[rST][]格式注释的Python源代码*的形式制作了Web文档并导出[Jupyter][]笔记。
+官方教程以*带有[Sphinx-Doc][]扩展[reST][]格式注释的Python源代码*的形式制作了Web文档并导出[Jupyter][]笔记。
 
 而这个项目除了翻译，修改还有:
 
-- 使用 Jupyter Notebook 保存说明和代码片段
-- 由 Jupyter Notebook 导出Markdown文件，并在其基础上构建Web文档
+- 使用[Jupyter][]笔记文件保存说明和代码片段
+- 从[Jupyter][]笔记导出[Markdown][]文件，并在其基础上构建Web文档站点
 
 这是个人的翻译笔记，用于个人学习 PyTorch。
 
-目前只翻译和转换了部分 `*.py`文件(用 Sphinx-Gallery 制作了 Jupyter Notebook) ，没有处理任何 `*.rst`(单纯的 Sphinx-Doc 文档)
+目前只翻译和转换了部分`*.py`文件(官方使用Sphinx-Gallery将它们转成[Sphinx-Doc][]文档并导出[Jupyter][]笔记) ，没有处理任何 `*.rst`(单纯的[Sphinx-Doc][]文档)
 
 ## 环境
 
-这个工程采在 Ubuntu 1604, 1804 下，使用 Python 3.6 运行和构建，没有测试过其它环境。
+这个工程采在Ubuntu1604,1804下，使用Python3.6运行和构建，没有测试过其它环境。
 
-**强烈**建议为这个项目单独新建一个专用的 [venv][] 或 [Conda][] 环境
+**强烈**建议为这个项目单独新建一个专用的[venv][]或[Conda][]环境
 
 - [pip][]:
 
@@ -42,9 +42,15 @@
   pip install mkdocs pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
   ```
 
-## 运行 Jupyter Notebook
+## 运行 Jupyter Lab/Notebook
 
-入门指南的翻译以[Jupyter][]笔记的形式保存在`notebooks`目录，启动[Jupyter][] notebooks:
+入门指南的翻译以[Jupyter][]笔记的形式保存在`notebooks`目录，启动[Jupyter][] lab/notebook:
+
+```console
+jupyter-lab
+```
+
+或者
 
 ```console
 jupyter-notebook
@@ -54,7 +60,7 @@ jupyter-notebook
 
 ## 构建Web文档站点
 
-这个项目使用 [MkDocs][] 将多个由笔记本导出 Markdown 文档生成一个 Web 文档。
+这个项目使用[MkDocs][]将多个由笔记导出的Markdown文件合并生成一个Web文档站点。
 
 1. 把笔记导出为Markdown文件:
 
@@ -74,23 +80,16 @@ jupyter-notebook
    mkdocs serve
    ```
 
-## Jupyter Notebook 无法导出含有中文 latex/pdf 的问题
+## Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题
 
 采用来自 <https://github.com/jupyter/notebook/issues/2848#issuecomment-372736199> 的方法：
 
-1. 安装 texlive
+1. 安装 texlive 和 pandoc
 
    ```console
-   sudo apt install texlive-xetex
-   ```
+   sudo apt install texlive-xetex pandoc
 
-1. 安装 pandoc
-
-   ```console
-   sudo apt install pandoc
-   ```
-
-1. 修改 Aritcal tex 模板
+1. 修改 Article 的 LaTeX 模板
 
    找到文件 `site-packages/nbconvert/templates/latex/article.tplx`,
 
@@ -114,5 +113,7 @@ jupyter-notebook
 [Pipenv]: https://packaging.python.org/key_projects/#pipenv
 [venv]: https://packaging.python.org/key_projects/#venv
 [Sphinx-Doc]: http://www.sphinx-doc.org/
+[reST]: http://www.sphinx-doc.org/en/master/usage/restructuredtext/ "reStructuredText (reST)"
+[Sphinx-Gallery]: https://sphinx-gallery.github.io/
 [MkDocs]: https://www.mkdocs.org
-[rST]: reStructuredText "reStructuredText (reST)"
+[Markdown]: https://www.markdownguide.org/
