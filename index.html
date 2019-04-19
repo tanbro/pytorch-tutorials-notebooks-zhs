@@ -259,8 +259,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jupyter-notebook" title="运行 Jupyter Notebook" class="md-nav__link">
-    运行 Jupyter Notebook
+  <a href="#jupyter-labnotebook" title="运行 Jupyter Lab/Notebook" class="md-nav__link">
+    运行 Jupyter Lab/Notebook
   </a>
   
 </li>
@@ -273,8 +273,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jupyter-notebook-latexpdf" title="Jupyter Notebook 无法导出含有中文 latex/pdf 的问题" class="md-nav__link">
-    Jupyter Notebook 无法导出含有中文 latex/pdf 的问题
+  <a href="#jupyter-notebook-latexpdf" title="Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题" class="md-nav__link">
+    Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题
   </a>
   
 </li>
@@ -426,8 +426,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jupyter-notebook" title="运行 Jupyter Notebook" class="md-nav__link">
-    运行 Jupyter Notebook
+  <a href="#jupyter-labnotebook" title="运行 Jupyter Lab/Notebook" class="md-nav__link">
+    运行 Jupyter Lab/Notebook
   </a>
   
 </li>
@@ -440,8 +440,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jupyter-notebook-latexpdf" title="Jupyter Notebook 无法导出含有中文 latex/pdf 的问题" class="md-nav__link">
-    Jupyter Notebook 无法导出含有中文 latex/pdf 的问题
+  <a href="#jupyter-notebook-latexpdf" title="Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题" class="md-nav__link">
+    Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题
   </a>
   
 </li>
@@ -468,17 +468,17 @@
                 <h1 id="pytorch-tutorials-notebooks-zhs">pytorch-tutorials-notebooks-zhs</h1>
 <p><a href="https://github.com/pytorch/tutorials/">PyTorch tutorials</a> 的中文翻译笔记。</p>
 <p>点击这个链接直接访问这个项目生成的Web文档站点：<a href="https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/">https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/</a></p>
-<p>官方教程以<em>带有<a href="http://www.sphinx-doc.org/">Sphinx-Doc</a>扩展<a href="reStructuredText" title="reStructuredText (reST)">rST</a>格式注释的Python源代码</em>的形式制作了Web文档并导出<a href="https://jupyter.org/">Jupyter</a>笔记。</p>
+<p>官方教程以<em>带有<a href="http://www.sphinx-doc.org/">Sphinx-Doc</a>扩展<a href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/" title="reStructuredText (reST)">reST</a>格式注释的Python源代码</em>的形式制作了Web文档并导出<a href="https://jupyter.org/">Jupyter</a>笔记。</p>
 <p>而这个项目除了翻译，修改还有:</p>
 <ul>
-<li>使用 Jupyter Notebook 保存说明和代码片段</li>
-<li>由 Jupyter Notebook 导出Markdown文件，并在其基础上构建Web文档</li>
+<li>使用<a href="https://jupyter.org/">Jupyter</a>笔记文件保存说明和代码片段</li>
+<li>从<a href="https://jupyter.org/">Jupyter</a>笔记导出<a href="https://www.markdownguide.org/">Markdown</a>文件，并在其基础上构建Web文档站点</li>
 </ul>
 <p>这是个人的翻译笔记，用于个人学习 PyTorch。</p>
-<p>目前只翻译和转换了部分 <code>*.py</code>文件(用 Sphinx-Gallery 制作了 Jupyter Notebook) ，没有处理任何 <code>*.rst</code>(单纯的 Sphinx-Doc 文档)</p>
+<p>目前只翻译和转换了部分<code>*.py</code>文件(官方使用Sphinx-Gallery将它们转成<a href="http://www.sphinx-doc.org/">Sphinx-Doc</a>文档并导出<a href="https://jupyter.org/">Jupyter</a>笔记) ，没有处理任何 <code>*.rst</code>(单纯的<a href="http://www.sphinx-doc.org/">Sphinx-Doc</a>文档)</p>
 <h2 id="_1">环境</h2>
-<p>这个工程采在 Ubuntu 1604, 1804 下，使用 Python 3.6 运行和构建，没有测试过其它环境。</p>
-<p><strong>强烈</strong>建议为这个项目单独新建一个专用的 <a href="https://packaging.python.org/key_projects/#venv">venv</a> 或 <a href="https://packaging.python.org/key_projects/#conda">Conda</a> 环境</p>
+<p>这个工程采在Ubuntu1604,1804下，使用Python3.6运行和构建，没有测试过其它环境。</p>
+<p><strong>强烈</strong>建议为这个项目单独新建一个专用的<a href="https://packaging.python.org/key_projects/#venv">venv</a>或<a href="https://packaging.python.org/key_projects/#conda">Conda</a>环境</p>
 <ul>
 <li><a href="https://packaging.python.org/key_projects/#pip">pip</a>:</li>
 </ul>
@@ -506,15 +506,20 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="jupyter-notebook">运行 Jupyter Notebook</h2>
-<p>入门指南的翻译以<a href="https://jupyter.org/">Jupyter</a>笔记的形式保存在<code>notebooks</code>目录，启动<a href="https://jupyter.org/">Jupyter</a> notebooks:</p>
+<h2 id="jupyter-labnotebook">运行 Jupyter Lab/Notebook</h2>
+<p>入门指南的翻译以<a href="https://jupyter.org/">Jupyter</a>笔记的形式保存在<code>notebooks</code>目录，启动<a href="https://jupyter.org/">Jupyter</a> lab/notebook:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">jupyter-lab</span>
+</pre></div>
+</td></tr></table>
+
+<p>或者</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">jupyter-notebook</span>
 </pre></div>
 </td></tr></table>
 
 <p>在 <code>notebooks</code> 目录可以找到所有笔记。</p>
 <h2 id="web">构建Web文档站点</h2>
-<p>这个项目使用 <a href="https://www.mkdocs.org">MkDocs</a> 将多个由笔记本导出 Markdown 文档生成一个 Web 文档。</p>
+<p>这个项目使用<a href="https://www.mkdocs.org">MkDocs</a>将多个由笔记导出的Markdown文件合并生成一个Web文档站点。</p>
 <ol>
 <li>把笔记导出为Markdown文件:</li>
 </ol>
@@ -536,24 +541,15 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="jupyter-notebook-latexpdf">Jupyter Notebook 无法导出含有中文 latex/pdf 的问题</h2>
+<h2 id="jupyter-notebook-latexpdf">Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题</h2>
 <p>采用来自 <a href="https://github.com/jupyter/notebook/issues/2848#issuecomment-372736199">https://github.com/jupyter/notebook/issues/2848#issuecomment-372736199</a> 的方法：</p>
 <ol>
-<li>安装 texlive</li>
+<li>安装 texlive 和 pandoc</li>
 </ol>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">sudo apt install texlive-xetex</span>
-</pre></div>
-</td></tr></table>
-
+<p>```console
+   sudo apt install texlive-xetex pandoc</p>
 <ol>
-<li>安装 pandoc</li>
-</ol>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="go">sudo apt install pandoc</span>
-</pre></div>
-</td></tr></table>
-
-<ol>
-<li>修改 Aritcal tex 模板</li>
+<li>修改 Article 的 LaTeX 模板</li>
 </ol>
 <p>找到文件 <code>site-packages/nbconvert/templates/latex/article.tplx</code>,</p>
 <p>在 <code>\documentclass[11pt]{article}</code> 之后加上中文字体定义:</p>
