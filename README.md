@@ -39,8 +39,7 @@
   conda install -y jupyter nbconvert tqdm pandas matplotlib scikit-image pygments
   conda install -y -c conda-forge jupyterlab
   conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
-  conda install -y -c conda-forge mkdocs
-  pip install pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
+  pip install mkdocs pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
   ```
 
 ## 运行 Jupyter Notebook

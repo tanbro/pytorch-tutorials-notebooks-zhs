@@ -2,7 +2,7 @@
 data/
 
 /docs/*
-!/docs/index.md
+!/docs/README.md
 
 
 # Byte-compiled / optimized / DLL files
