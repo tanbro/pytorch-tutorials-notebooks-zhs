@@ -35,3 +35,4 @@ nav:
       - 训练分类器: beginner/blitz/cifar10_tutorial.md
       - 数据并行: beginner/blitz/data_parallel_tutorial.md
     - 数据加载和处理教程: beginner/data_loading_tutorial.md
+    - 迁移学习教程: beginner/transfer_learning_tutorial.md
