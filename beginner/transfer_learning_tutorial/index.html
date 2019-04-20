@@ -602,7 +602,7 @@
 <p>一些来自上述笔记的摘要，</p>
 <blockquote>
 <p>在实践中，很少有人从头开始训练整个卷积网络（随机初始化），因为拥有足够大小的数据集的情况是相对罕见的。
-相反，通常在非常大的数据集（例如ImageNet，其包含具有1000个类别的120万个图像）上预先训练ConvNet，然后使用ConvNet作为后续任务的初始化或固定特征提取器。</p>
+相反，通常在非常大的数据集（例如ImageNet，其包含具有1000个类别的120万个图像）上预先训练号ConvNet，后续任务使用它进行初始化或者用作固定特征提取器。</p>
 </blockquote>
 <p>下面是两种主要的迁移学习场景：</p>
 <ul>
@@ -657,7 +657,7 @@
 不过我们使用的是迁移学习，模型应该能够得到足够好的泛化结果。</p>
 <p>这个数据集是imagenet的一个非常小的子集。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">注意</p>
 <p>从<a href="https://download.pytorch.org/tutorial/hymenoptera_data.zip">https://download.pytorch.org/tutorial/hymenoptera_data.zip</a>下载数据，并解压到当前目录下的<code>data</code>子目录。</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
