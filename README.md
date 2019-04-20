@@ -36,7 +36,7 @@
 - [Conda][]:
 
   ```console
-  conda install -y jupyter nbconvert tqdm pandas matplotlib scikit-image pygments
+  conda install -y jupyter nbconvert tqdm pandas matplotlib scikit-image pillow=4.1.1 pygments
   conda install -y -c conda-forge jupyterlab
   conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
   pip install mkdocs pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
