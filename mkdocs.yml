@@ -36,5 +36,5 @@ nav:
       - 数据并行: beginner/blitz/data_parallel_tutorial.md
     - 数据加载和处理教程: beginner/data_loading_tutorial.md
     - 迁移学习教程: beginner/transfer_learning_tutorial.md
-  - 文本
+  - 文本:
     - 聊天机器人教程: beginner/chatbot_tutorial.md
