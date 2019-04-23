@@ -16,14 +16,13 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML
 
 markdown_extensions:
-  - smarty
-  - sane_lists
   - admonition
   - codehilite:
       linenums: True
+  - def_list
+  - sane_lists
   - pymdownx.extra
   - pymdownx.arithmatex
-  - pymdownx.smartsymbols
 
 nav:
   - README: README.md

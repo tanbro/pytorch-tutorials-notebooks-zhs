@@ -28,42 +28,39 @@
 
 ### 包依赖
 
-可用 [pip][], [Pipenv] 或 [Conda][] 为这个项目安装所需的包：
+[pip][], [Pipenv] 或 [Conda][] 等包管理器均可为这个项目安装所需的包：
 
-- [pip][]:
+```bash tab="pip"
+# pip
+pip install -r requirements.txt
+```
 
-  ```console
-  pip install -r requirements.txt
-  ```
+```bash tab="Pipenv"
+# Pipenv
+pipenv install
+```
 
-- [Pipenv][]:
-
-  ```console
-  pipenv install
-  ```
-
-- [Conda][]:
-
-  ```console
-  conda install -y jupyter nbconvert tqdm pandas matplotlib scikit-image pillow=4.1.1 pygments
-  conda install -y -c conda-forge jupyterlab
-  conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
-  pip install mkdocs pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
-  ```
+```bash tab="Conda"
+# Conda
+conda install -y jupyter nbconvert tqdm pandas matplotlib scikit-image pillow=4.1.1 pygments
+conda install -y -c conda-forge jupyterlab
+conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
+pip install mkdocs pymdown-extensions mkdocs-material mkdocs-pdf-export-plugin
+```
 
 ## 运行 Jupyter Lab/Notebook
 
 入门指南的翻译以 [Jupyter][] 笔记的形式保存在 `notebooks` 子目录中。
 
-要启动 [Jupyter][] lab/notebook web 服务程序，运行：
+要启动 [Jupyter][] lab/notebook web 服务程序，可分别执行：
 
-```console
+```bash tab="JupyterLab"
+# JupyterLab
 jupyter-lab
 ```
 
-或
-
-```console
+```bash tab="Jupyter Notebook"
+# Jupyter Notebook
 jupyter-notebook
 ```
 
@@ -79,13 +76,13 @@ jupyter-notebook
    python tools/nbtomd.py
    ```
 
-1. 构建 Web 文档
+2. 构建 Web 文档
 
    ```console
    mkdocs build
    ```
 
-1. 启动 Web 文档服务器：
+3. 启动 Web 文档服务器：
 
    ```console
    mkdocs serve
@@ -105,10 +102,9 @@ jupyter-notebook
    sudo apt install texlive-xetex pandoc
    ```
 
-1. 修改 `nbconvert` `Article` 的 `LaTeX` 模板文件
+2. 修改 `nbconvert` `Article` 的 `LaTeX` 模板文件
 
    找到文件 `site-packages/nbconvert/templates/latex/article.tplx`,
-
    在 `\documentclass[11pt]{article}` 之后加上中文字体定义，修改后的内容形如:
 
    ```latex
