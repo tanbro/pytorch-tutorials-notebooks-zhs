@@ -825,7 +825,7 @@
                 
                 <h1 id="_1">聊天机器人教程</h1>
 <p><strong>作者</strong> <a href="https://github.com/MatthewInkawhich">Matthew Inkawhich</a></p>
-<p>在本教程中，我们将探索一个有趣的序列到序列(Seq2Seq)模型的用例。我们将使用<a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a>的电影脚本训练一个简单的聊天机器人。</p>
+<p>在本教程中，我们将探索一个有趣的序列到序列(Seq2Seq)模型的用例。我们将使用 <a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a> 的电影剧本训练一个简单的聊天机器人(chatbot)。</p>
 <p>对话模型是人工智能研究的热门话题。
 聊天机器人在包括客户服务应用和在线帮助台在内的各种场景都用应用。
 这些机器人通常使由基于索引的模型驱动的，它们响应特定的问题，输出预定义的响应。在像公司IT帮助台这样高度受限的领域中，这些模型可能是住够了，不过在通常的状况下，他们是不够健壮的。
@@ -877,8 +877,8 @@
 
 <p><strong>教程要点：</strong></p>
 <ul>
-<li>加载和预处理<a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a>数据集</li>
-<li>使用<a href="https://arxiv.org/abs/1508.04025">Luong attention mechanism(s)</a>实现一个序列到序列模型</li>
+<li>加载和预处理 <a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a> 数据集</li>
+<li>使用 <a href="https://arxiv.org/abs/1508.04025">Luong attention mechanism(s)</a> 实现一个序列到序列模型</li>
 <li>使用小批次联合训练编码器和解码器模型</li>
 <li>实现贪婪搜索解码模块</li>
 <li>与训练后的聊天机器人互动</li>
@@ -900,7 +900,7 @@
 </li>
 </ol>
 <h2 id="_2">准备工作</h2>
-<p>首先，从<a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html</a>下载ZIP文件解压缩到当前目录的<code>data</code>子目录中。</p>
+<p>首先，从 <a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html</a> 下载ZIP文件，解压缩到当前目录的<code>data</code>子目录中。</p>
 <p>然后，我们进行一些必要的引用。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -2107,19 +2107,17 @@ Trimmed from 64217 pairs to 53120, 0.8272 of total
 <p>函数 <code>train</code> 包含一个单次训练迭代（单个输入批次）算法。</p>
 <p>我们用一些巧妙的技巧来促进收敛：</p>
 <ul>
-<li>
-<p>第一个技巧是使用<strong>教师强制</strong>。
-  这意味着某些情况下，通过设置<code>teacher_forcing_ratio</code>，我们使用当前目标词，而不是使用解码器的当前猜测结果，作为解码器的后续输入。
+<li>第一个技巧是使用<strong>教师强制</strong>。</li>
+</ul>
+<p>这意味着某些情况下，通过设置<code>teacher_forcing_ratio</code>，我们使用当前目标词，而不是使用解码器的当前猜测结果，作为解码器的后续输入。
   这项技术是训练解码器的轮子，有助于更有效的训练。
   教师强制会导致模型在推理期间不稳定，这是因为解码器在训练中没有足够的机会真正的制作它自己的输出序列。
   所有，我们必须注意地如何设置<code>teacher_forcing_ratio</code>，不要被快速收敛欺骗。</p>
-</li>
-<li>
-<p>我们要实现的第二个技巧是<strong>梯度剪切</strong>。
-  这是一种用于对抗“梯度爆炸”的常用技术。
-  本质上，通过剪切或者最大阈值，我们防止梯度爆炸性增长和溢出(NaN)，或者在成本函数中从悬崖跌落。</p>
-</li>
+<ul>
+<li>我们要实现的第二个技巧是<strong>梯度剪切</strong>。</li>
 </ul>
+<p>这是一种用于对抗“梯度爆炸”的常用技术。
+  本质上，通过剪切或者最大阈值，我们防止梯度爆炸性增长和溢出(NaN)，或者在成本函数中从悬崖跌落。</p>
 <p><img alt="grad_clip" src="https://pytorch.org/tutorials/_images/grad_clip.png" /></p>
 <p>图像来源: <a href="https://www.deeplearningbook.org/">Goodfellow 等人 <em>Deep Learning</em>. 2016.</a></p>
 <p><strong>运算顺序：</strong></p>
@@ -2133,8 +2131,10 @@ Trimmed from 64217 pairs to 53120, 0.8272 of total
 <li>剪切梯度。</li>
 <li>更新编码器和解码器模型的参数。</li>
 </ol>
-<p>!!! note &ldquo;注意&rdquo;:
-  只需将 PyTorch RNN 模块(<code>RNN</code>, <code>LSTM</code>, <code>GRU</code>)的整个输入序列（或批次的序列）传入，它们就可以被用于任何其它类似的非递归层。
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+</div>
+<p>只需将 PyTorch RNN 模块(<code>RNN</code>, <code>LSTM</code>, <code>GRU</code>)的整个输入序列（或批次的序列）传入，它们就可以被用于任何其它类似的非递归层。
   我们在<code>encoder</code>中这样使用<code>GUR</code>层。
   实际情况是，在底层，每一个时间步骤上都有一个交互过程迭代计算隐藏状态。</p>
 <p>另外，也可以每个时间步骤运行这些模型。
@@ -2400,15 +2400,27 @@ Trimmed from 64217 pairs to 53120, 0.8272 of total
 <p>使用一下计算图对输入句子进行评估输入：</p>
 <p><strong>计算图：</strong></p>
 <ol>
-<li>通过编码器模型转发输入。</li>
-<li>将编码器的最终隐藏层用作解码器的第一个隐藏输入。</li>
-<li>将解码器的第一个输入初始化为<code>SOS_token</code></li>
-<li>初始化张量，在其末尾附加附加解码后的词</li>
-<li>一次迭代解码一个词的标记(token)：</li>
-<li>通过解码器前向传播。</li>
-<li>获得可能性最大词的token和softmax分值(score)。</li>
-<li>记录token和score</li>
-<li>将当前token用作下一个解码器的输入</li>
+<li>
+<p>通过编码器模型转发输入。</p>
+</li>
+<li>
+<p>将编码器的最终隐藏层用作解码器的第一个隐藏输入。</p>
+</li>
+<li>
+<p>将解码器的第一个输入初始化为<code>SOS_token</code></p>
+</li>
+<li>
+<p>初始化张量，在其末尾附加附加解码后的词</p>
+</li>
+<li>
+<p>一次迭代解码一个词的标记(token)：</p>
+</li>
+</ol>
+<p>a) 通过解码器前向传播。</p>
+<p>b) 获得可能性最大词的token和softmax分值(score)。</p>
+<p>c) 记录token和score</p>
+<p>d) 将当前token用作下一个解码器的输入</p>
+<ol>
 <li>返回收集到的词的标记(token)和softmax分值(score)列表</li>
 </ol>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -2480,8 +2492,7 @@ Trimmed from 64217 pairs to 53120, 0.8272 of total
 此时，<code>lengths</code>是一个标量，因为我们一次只评估一个句子(<em>batch_size==1</em>)。</p>
 <p>然后，通过<code>GreedySearchDecoder</code>对象(<code>searcher</code>)，我们可以获得解码后的回复句的张量。</p>
 <p>最后，将回复的索引值转为词，并返回解码出来的词列表。</p>
-<p><code>evaluateInput</code> acts as the user interface for our chatbot. 
-<code>evaluateInput</code>充当聊天机器人用户界面。
+<p><code>evaluateInput</code>充当聊天机器人用户界面。
 调用它的时候，提供一个文本输入界面，我们在这里输入自己的询问句。
 按<em>回车</em>完成后，用和处理训练数据一致的方法对输入文本进行正规化处理，传递给<code>evaluate</code>函数，获得解码后的输出句子。
 循环执行这个过程，这样就可以和机器人不停地聊天。输入“q”或者&rdquo;quit&rdquo;退出。</p>
