@@ -828,10 +828,9 @@
 <p>在本教程中，我们将探索一个有趣的序列到序列(Seq2Seq)模型的用例。我们将使用<a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a>的电影脚本训练一个简单的聊天机器人。</p>
 <p>对话模型是人工智能研究的热门话题。
 聊天机器人在包括客户服务应用和在线帮助台在内的各种场景都用应用。
-这些机器人通常使由基于索引的模型驱动的，它们响应特定的问题，输出预定义的响应。在像公司IT帮助台这样高度受限的领域中，这些模型可能是住够了，不过对于一半用例来说，他们是不够健壮的。
+这些机器人通常使由基于索引的模型驱动的，它们响应特定的问题，输出预定义的响应。在像公司IT帮助台这样高度受限的领域中，这些模型可能是住够了，不过在通常的状况下，他们是不够健壮的。
 教一台机器与人类在多个领域内进行有意义的对话是一个远未解决的研究性问题。
-在最近的深度学习模型热潮中，像Google<a href="https://arxiv.org/abs/1506.05869">Neural Conversational Model</a>这样的强大的生成模型的出现，标志着多领域生成对话模型的一大进步。
-this tutorial, we will implement this kind of model in PyTorch.
+在最近的深度学习模型热潮中，像 <a href="https://arxiv.org/abs/1506.05869">Google Neural Conversational Model</a> 这样的强大的生成模型的出现，标志着多领域生成对话模型的一大进步。
 在这个教程中，我们将用<code>PyTorch</code>实现这种模型。</p>
 <p><img alt="bot" src="https://pytorch.org/tutorials/_images/bot.png" /></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -902,7 +901,7 @@ this tutorial, we will implement this kind of model in PyTorch.
 </ol>
 <h2 id="_2">准备工作</h2>
 <p>首先，从<a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html</a>下载ZIP文件解压缩到当前目录的<code>data</code>子目录中。</p>
-<p>此后，我们导入一些必要的包。</p>
+<p>然后，我们进行一些必要的引用。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -954,7 +953,7 @@ this tutorial, we will implement this kind of model in PyTorch.
 <h2 id="_3">数据加载与预处理</h2>
 <p>下一步，将我们之前下载的数据重新格式化，并把数据加载到我们所要使用的结构中。</p>
 <p><a href="https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie-Dialogs Corpus</a>
-是一个丰富的电影角色对话数据集：</p>
+是一个内容丰富的电影角色对话数据集：</p>
 <ul>
 <li>来自10,292对电影角色的220,579个对话</li>
 <li>来自617部电影的9,035个角色</li>
@@ -1030,7 +1029,7 @@ L869 +++$+++ u0 +++$+++ m0 +++$+++ BIANCA +++$+++ Like my fear of wearing pastel
 <ul>
 <li><code>loadLines</code> 将每一行分割成具有多个字段(lineID, characterID, movieID, character, text)的字典</li>
 <li><code>loadConversations</code> 将来自 <code>loadLines</code> 的，包含多个字段的行，根据 <em>movie_conversations.txt</em> 组成对话。</li>
-<li><code>extractSentencePairs</code> 从对话中提取句子对</li>
+<li><code>extractSentencePairs</code> 从对话中提取“询问-回答”句子对</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
