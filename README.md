@@ -3,25 +3,32 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tanbro/pytorch-tutorials-notebooks-zhs/master)
 
 [PyTorch tutorials](https://github.com/pytorch/tutorials/) 的中文翻译笔记。
+点击下面的链接可直接访问该项目生成的 Web 文档站点：
 
-点击这个链接直接访问这个项目生成的Web文档站点：<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
+<https://tanbro.github.io/pytorch-tutorials-notebooks-zhs/>
 
-官方教程以*带有[Sphinx-Doc][]扩展[reST][]格式注释的Python源代码*的形式制作了Web文档并导出[Jupyter][]笔记。
+## 概述
+
+官方教程以 *带有 [Sphinx-Doc][] 扩展 [reST][] 格式注释的 Python 源代码* 的形式制作了Web文档并导出 [Jupyter][] 笔记。
 
 而这个项目除了翻译，修改还有:
 
-- 使用[Jupyter][]笔记文件保存说明和代码片段
-- 从[Jupyter][]笔记导出[Markdown][]文件，并在其基础上构建Web文档站点
+- 使用 [Jupyter][] 笔记文件保存说明和代码片段
+- 从 [Jupyter][] 笔记导出 [Markdown][] 文件，并在其基础上构建Web文档站点
 
 这是个人的翻译笔记，用于个人学习 PyTorch。
 
-目前只翻译和转换了部分`*.py`文件(官方使用Sphinx-Gallery将它们转成[Sphinx-Doc][]文档并导出[Jupyter][]笔记) ，没有处理任何 `*.rst`(单纯的[Sphinx-Doc][]文档)
+目前只翻译和转换了部分`*.py`文件(官方使用Sphinx-Gallery将它们转成[Sphinx-Doc][]文档并导出 [Jupyter][] 笔记) ，没有处理任何 `*.rst`(单纯的 [Sphinx-Doc][] 文档)
 
 ## 环境
 
-这个工程采在Ubuntu1604,1804下，使用Python3.6运行和构建，没有测试过其它环境。
+这个工程在 Ubuntu 1604, 1804下，使用 Python3.6 运行和构建，没有测试过其它环境。
 
-**强烈**建议为这个项目单独新建一个专用的[venv][]或[Conda][]环境
+**强烈**建议为这个项目使用单独的 [venv][] 或 [Conda][] 环境
+
+### 包依赖
+
+可用 [pip][], [Pipenv] 或 [Conda][] 为这个项目安装所需的包：
 
 - [pip][]:
 
@@ -46,21 +53,23 @@
 
 ## 运行 Jupyter Lab/Notebook
 
-入门指南的翻译以[Jupyter][]笔记的形式保存在`notebooks`目录，启动[Jupyter][] lab/notebook:
+入门指南的翻译以 [Jupyter][] 笔记的形式保存在 `notebooks` 子目录中。
+
+要启动 [Jupyter][] lab/notebook web 服务程序，运行：
 
 ```console
 jupyter-lab
 ```
 
-或者
+或
 
 ```console
 jupyter-notebook
 ```
 
-在Web界面中进入`notebooks`目录可以找到所有笔记。
+在 Web 界面中进入 `notebooks` 子目录，可以找到所有笔记。
 
-## 构建Web文档站点
+## 构建 Web 文档站点
 
 这个项目使用[MkDocs][]将多个由笔记导出的Markdown文件合并生成一个Web文档站点。
 
@@ -70,19 +79,23 @@ jupyter-notebook
    python tools/nbtomd.py
    ```
 
-1. 构建Web文档
+1. 构建 Web 文档
 
    ```console
    mkdocs build
    ```
 
-1. 运行Web文档服务器，访问 <http://localhost:8000/> 查看
+1. 启动 Web 文档服务器：
 
    ```console
    mkdocs serve
    ```
 
-## Jupyter Notebook 无法导出含有中文 LaTeX/PDF 的问题
+   然后在浏览器中访问 <http://localhost:8000/>
+
+## 其它
+
+### Jupyter 无法以 LaTeX/PDF 格式导出含有中文的笔记
 
 采用来自 <https://github.com/jupyter/notebook/issues/2848#issuecomment-372736199> 的方法：
 
@@ -90,12 +103,13 @@ jupyter-notebook
 
    ```console
    sudo apt install texlive-xetex pandoc
+   ```
 
-1. 修改 Article 的 LaTeX 模板
+1. 修改 `nbconvert` `Article` 的 `LaTeX` 模板文件
 
    找到文件 `site-packages/nbconvert/templates/latex/article.tplx`,
 
-   在 `\documentclass[11pt]{article}` 之后加上中文字体定义:
+   在 `\documentclass[11pt]{article}` 之后加上中文字体定义，修改后的内容形如:
 
    ```latex
    ((* block docclass *))
@@ -107,7 +121,7 @@ jupyter-notebook
    ((* endblock docclass *))
    ```
 
-具体采用哪个的字体应以实际情况为准
+具体采用哪个的字体应以实际情况为准。
 
 [Jupyter]: https://jupyter.org/
 [Conda]: https://packaging.python.org/key_projects/#conda

@@ -15,7 +15,7 @@ tqdm = "*"
 pandas = "*"
 matplotlib = "*"
 scikit-image = "*"
-# pillow >= 4.2 will throw error when trying to write mode RGBA as JPEG, this is a workaround to the issue
+# pillow >= 4.2 will throw error when trying to write mode RGBA as JPEG, pillow = "==4.1.1" maybe a workaround to the issue
 pillow = "==4.1.1"
 mkdocs = "*"
 pygments = "*"
