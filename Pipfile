@@ -22,7 +22,6 @@ pygments = "*"
 pymdown-extensions = "*"
 mkdocs-material = "*"
 mkdocs-pdf-export-plugin = "*"
-python-slugify = "*"
 
 [requires]
 python_version = "3.6"

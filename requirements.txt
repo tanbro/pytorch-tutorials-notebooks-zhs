@@ -13,4 +13,3 @@ pygments
 pymdown-extensions
 mkdocs-material
 mkdocs-pdf-export-plugin
-python-slugify

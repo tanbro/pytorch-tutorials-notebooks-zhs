@@ -2,6 +2,20 @@ site_name: PyTorch tutorials 中文翻译笔记
 repo_name: tanbro/pytorch-tutorials-notebooks-zhs
 repo_url: https://github.com/tanbro/pytorch-tutorials-notebooks-zhs
 
+nav:
+    - README: README.md
+    - 入门:
+        - 60分钟闪电战:
+            - 什么是PyTorch？: beginner/blitz/tensor_tutorial.md
+            - Autograd：自动微分: beginner/blitz/autograd_tutorial.md
+            - 神经网络: beginner/blitz/neural_networks_tutorial.md
+            - 训练分类器: beginner/blitz/cifar10_tutorial.md
+            - 数据并行: beginner/blitz/data_parallel_tutorial.md
+        - 数据加载和处理教程: beginner/data_loading_tutorial.md
+        - 迁移学习教程: beginner/transfer_learning_tutorial.md
+    - 文本:
+        - 聊天机器人教程: beginner/chatbot_tutorial.md
+
 plugins:
     - search
     - pdf-export:
@@ -20,30 +34,28 @@ extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML
 
 markdown_extensions:
+    - abbr
     - admonition
+    - attr_list
     - codehilite:
         guess_lang: False
         linenums: True
     - def_list
+    - footnotes
     - meta
     - sane_lists
+    - smarty
     - toc:
         permalink: True
         baselevel: 2
-        slugify: slugify.slugify
-    - pymdownx.extra
+        slugify: !!python/name:pymdownx.slugs.uslugify
     - pymdownx.arithmatex
-
-nav:
-    - README: README.md
-    - 入门:
-        - 60分钟闪电战:
-            - 什么是PyTorch？: beginner/blitz/tensor_tutorial.md
-            - Autograd：自动微分: beginner/blitz/autograd_tutorial.md
-            - 神经网络: beginner/blitz/neural_networks_tutorial.md
-            - 训练分类器: beginner/blitz/cifar10_tutorial.md
-            - 数据并行: beginner/blitz/data_parallel_tutorial.md
-        - 数据加载和处理教程: beginner/data_loading_tutorial.md
-        - 迁移学习教程: beginner/transfer_learning_tutorial.md
-    - 文本:
-        - 聊天机器人教程: beginner/chatbot_tutorial.md
+    - pymdownx.caret
+    - pymdownx.details
+    - pymdownx.escapeall
+    - pymdownx.extra
+    - pymdownx.extrarawhtml
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.striphtml
+    - pymdownx.smartsymbols
