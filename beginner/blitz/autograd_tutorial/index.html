@@ -52,6 +52,8 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
     
     
       
@@ -90,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#autograd-automatic-differentiation" tabindex="1" class="md-skip">
+      <a href="#autograd-自动微分automatic-differentiation" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -165,7 +167,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
           </div>
@@ -212,7 +214,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
     </div>
@@ -296,8 +298,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Autograd：自动微分
@@ -311,23 +311,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tensor" title="张量(Tensor)" class="md-nav__link">
+  <a href="#autograd-自动微分automatic-differentiation" title="Autograd: 自动微分(Automatic differentiation)" class="md-nav__link">
+    Autograd: 自动微分(Automatic differentiation)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#张量tensor" title="张量(Tensor)" class="md-nav__link">
     张量(Tensor)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gradients" title="梯度(Gradients)" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#梯度gradients" title="梯度(Gradients)" class="md-nav__link">
     梯度(Gradients)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -462,23 +473,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tensor" title="张量(Tensor)" class="md-nav__link">
+  <a href="#autograd-自动微分automatic-differentiation" title="Autograd: 自动微分(Automatic differentiation)" class="md-nav__link">
+    Autograd: 自动微分(Automatic differentiation)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#张量tensor" title="张量(Tensor)" class="md-nav__link">
     张量(Tensor)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gradients" title="梯度(Gradients)" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#梯度gradients" title="梯度(Gradients)" class="md-nav__link">
     梯度(Gradients)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -501,13 +523,15 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/autograd_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="autograd-automatic-differentiation">Autograd: 自动微分(Automatic differentiation)</h1>
+                  <h1>Autograd：自动微分</h1>
+                
+                <h2 id="autograd-自动微分automatic-differentiation">Autograd: 自动微分(Automatic differentiation)<a class="headerlink" href="#autograd-自动微分automatic-differentiation" title="Permanent link">&para;</a></h2>
 <p><code>autograd</code> 包 是 PyTorch 中所有神经网络的中心。
 我们首先简要查看，然后训练第一个神经网络。</p>
 <p><code>autograd</code> 包为 Tensor 上的所有运算提供自动微分(automatic differentiation)。
 它是一个“运行中定义”(define-by-run)的框架，这意味着反向传播(backpropagation)算法由代码在运行时定义，并且每个迭代都可以不同。</p>
 <p>我们通过更简单的术语的例子来看看这些。</p>
-<h2 id="tensor">张量(Tensor)</h2>
+<h3 id="张量tensor">张量(Tensor)<a class="headerlink" href="#张量tensor" title="Permanent link">&para;</a></h3>
 <p><code>torch.Tensor</code> 是这个包的中心类。
 将它的 <code>.requires_grad</code> 属性设置为 <code>True</code>，即开始跟踪其上的所有运算。
 完成计算后调用 <code>.backward()</code> 即可自动完成梯度计算。
@@ -601,7 +625,7 @@ True
 </pre></div>
 </td></tr></table>
 
-<h2 id="gradients">梯度(Gradients)</h2>
+<h3 id="梯度gradients">梯度(Gradients)<a class="headerlink" href="#梯度gradients" title="Permanent link">&para;</a></h3>
 <p>现在进行反向传播(backprop)。
 由于 <code>out</code> 包含单个标量，<code>out.backward()</code>相当于 <code>out.backward(torch.tensor(1.))</code>。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">out</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>

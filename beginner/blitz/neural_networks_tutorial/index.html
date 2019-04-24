@@ -52,6 +52,8 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
     
     
       
@@ -90,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#neural-networks" tabindex="1" class="md-skip">
+      <a href="#神经网络neural-networks" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -165,7 +167,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
           </div>
@@ -212,7 +214,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
     </div>
@@ -308,8 +310,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         神经网络
@@ -323,37 +323,48 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="定义网络" class="md-nav__link">
+  <a href="#神经网络neural-networks" title="神经网络(Neural Networks)" class="md-nav__link">
+    神经网络(Neural Networks)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#定义网络" title="定义网络" class="md-nav__link">
     定义网络
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="损失函数" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#损失函数" title="损失函数" class="md-nav__link">
     损失函数
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="反向传播" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#反向传播" title="反向传播" class="md-nav__link">
     反向传播
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="更新权重" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#更新权重" title="更新权重" class="md-nav__link">
     更新权重
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -476,37 +487,48 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="定义网络" class="md-nav__link">
+  <a href="#神经网络neural-networks" title="神经网络(Neural Networks)" class="md-nav__link">
+    神经网络(Neural Networks)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#定义网络" title="定义网络" class="md-nav__link">
     定义网络
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="损失函数" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#损失函数" title="损失函数" class="md-nav__link">
     损失函数
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="反向传播" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#反向传播" title="反向传播" class="md-nav__link">
     反向传播
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="更新权重" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#更新权重" title="更新权重" class="md-nav__link">
     更新权重
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -529,7 +551,9 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/neural_networks_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="neural-networks">神经网络(Neural Networks)</h1>
+                  <h1>神经网络</h1>
+                
+                <h2 id="神经网络neural-networks">神经网络(Neural Networks)<a class="headerlink" href="#神经网络neural-networks" title="Permanent link">&para;</a></h2>
 <p>可以使用 <code>torch.nn</code> 包构造神经网络。</p>
 <p>现在我们已经初步了解了 <code>autograd</code>，<code>nn</code> 依靠 <code>autograd</code> 定义模型以及求微分。
 一个 <code>nn.Module</code> 包含多个层，一个返回 <code>output</code> 的 <code>forward(input)</code> 方法。</p>
@@ -546,7 +570,7 @@
 <li>将渐变传播回网络参数</li>
 <li>更新网络权重，通常使用简单的更新规则：<code>weight = weight - learning_rate * gradient</code></li>
 </ul>
-<h2 id="_1">定义网络</h2>
+<h3 id="定义网络">定义网络<a class="headerlink" href="#定义网络" title="Permanent link">&para;</a></h3>
 <p>我们来定义网络:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -703,7 +727,7 @@ torch.Size([6, 1, 5, 5])
 <p><strong>还剩下：</strong>
   - 计算损失
   - 更新网络权重</p>
-<h2 id="_2">损失函数</h2>
+<h3 id="损失函数">损失函数<a class="headerlink" href="#损失函数" title="Permanent link">&para;</a></h3>
 <p>损失函数采用<code>output</code>，<code>target</code>输入对，计算输出与目标的距离估算值。</p>
 <p><code>nn</code> 包下有多种不同的<a href="https://pytorch.org/docs/nn.html#loss-functions">损失函数</a>。
 比如 <code>nn.MSELoss</code> 就是一个简单的损失函数，它计算输入和目标之间的均方误差。</p>
@@ -757,7 +781,7 @@ torch.Size([6, 1, 5, 5])
 </pre></div>
 </td></tr></table>
 
-<h2 id="_3">反向传播</h2>
+<h3 id="反向传播">反向传播<a class="headerlink" href="#反向传播" title="Permanent link">&para;</a></h3>
 <p>要反向传播误差，我们锁要做的就是 <code>loss.backward()</code>。
 不过我们需要清除已有的梯度，否则梯度将被累积到已有的梯度上。</p>
 <p>现在可以调用 <code>loss.backward()</code>，看看 conv1 在调用之前和之后和偏差梯度。</p>
@@ -798,7 +822,7 @@ tensor([-0.0245, -0.0181,  0.0134,  0.0136,  0.0242,  0.0009])
 <ul>
 <li>更新网络的权重</li>
 </ul>
-<h2 id="_4">更新权重</h2>
+<h3 id="更新权重">更新权重<a class="headerlink" href="#更新权重" title="Permanent link">&para;</a></h3>
 <p>随机梯度下降是(SGD)是最简单的更新规则：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> weight = weight - learning_rate * gradient
 </pre></div>

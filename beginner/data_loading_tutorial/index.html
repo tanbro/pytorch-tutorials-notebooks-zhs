@@ -52,6 +52,8 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
     
     
       
@@ -90,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#数据加载和处理教程" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -165,7 +167,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
           </div>
@@ -212,7 +214,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
     </div>
@@ -347,8 +349,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         数据加载和处理教程
@@ -362,21 +362,27 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dataset" title="Dataset 类" class="md-nav__link">
+  <a href="#数据加载和处理教程" title="数据加载和处理教程" class="md-nav__link">
+    数据加载和处理教程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-类" title="Dataset 类" class="md-nav__link">
     Dataset 类
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="变换" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#变换" title="变换" class="md-nav__link">
     变换
   </a>
   
@@ -384,7 +390,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="组合转换" class="md-nav__link">
+  <a href="#组合转换" title="组合转换" class="md-nav__link">
     组合转换
   </a>
   
@@ -394,18 +400,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="遍历数据集" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#遍历数据集" title="遍历数据集" class="md-nav__link">
     遍历数据集
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#torchvision" title="后记：torchvision" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#后记torchvision" title="后记：torchvision" class="md-nav__link">
     后记：torchvision
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -487,21 +498,27 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dataset" title="Dataset 类" class="md-nav__link">
+  <a href="#数据加载和处理教程" title="数据加载和处理教程" class="md-nav__link">
+    数据加载和处理教程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-类" title="Dataset 类" class="md-nav__link">
     Dataset 类
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="变换" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#变换" title="变换" class="md-nav__link">
     变换
   </a>
   
@@ -509,7 +526,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="组合转换" class="md-nav__link">
+  <a href="#组合转换" title="组合转换" class="md-nav__link">
     组合转换
   </a>
   
@@ -519,18 +536,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="遍历数据集" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#遍历数据集" title="遍历数据集" class="md-nav__link">
     遍历数据集
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#torchvision" title="后记：torchvision" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#后记torchvision" title="后记：torchvision" class="md-nav__link">
     后记：torchvision
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -553,7 +575,9 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/data_loading_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">数据加载和处理教程</h1>
+                  <h1>数据加载和处理教程</h1>
+                
+                <h2 id="数据加载和处理教程">数据加载和处理教程<a class="headerlink" href="#数据加载和处理教程" title="Permanent link">&para;</a></h2>
 <p><strong>作者</strong>：<a href="https://chsasank.github.io">Sasank Chilamkurthy</a></p>
 <p>对于任何机器学习的问题，都会有大量的努力被用在准备数据上面。
 PyTorch提供了许多工具来简化数据加载、增强代码可读性。
@@ -704,7 +728,7 @@ First 4 Landmarks: [[32. 65.]
 </td></tr></table>
 
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_6_0.png" /></p>
-<h2 id="dataset">Dataset 类</h2>
+<h3 id="dataset-类">Dataset 类<a class="headerlink" href="#dataset-类" title="Permanent link">&para;</a></h3>
 <p><code>torch.utils.data.Dataset</code> 是针对数据集的抽象类.</p>
 <p>我们自己的数据集类应该继承自<code>Dataset</code>，覆盖以下方法：</p>
 <ul>
@@ -836,7 +860,7 @@ First 4 Landmarks: [[32. 65.]
 </td></tr></table>
 
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_10_7.png" /></p>
-<h2 id="_2">变换</h2>
+<h3 id="变换">变换<a class="headerlink" href="#变换" title="Permanent link">&para;</a></h3>
 <p>观察上面的样本，我们发现一个问题——图像不是同样的大小。
 大多数神经网络都期待固定大小的图像。
 因此，需要编写一些预处理代码。
@@ -1020,7 +1044,7 @@ First 4 Landmarks: [[32. 65.]
 </pre></div>
 </td></tr></table>
 
-<h3 id="_3">组合转换</h3>
+<h4 id="组合转换">组合转换<a class="headerlink" href="#组合转换" title="Permanent link">&para;</a></h4>
 <p>下面，在样本上应用转换。</p>
 <p>假设我们想要将图像的短边重新缩放到256，然后从中随机裁剪一个224的正方形。
 也就是说，我们需要组合<code>Rescale</code>和<code>RandomCrop</code>转换。
@@ -1062,7 +1086,7 @@ First 4 Landmarks: [[32. 65.]
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_14_0.png" /></p>
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_14_1.png" /></p>
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_14_2.png" /></p>
-<h2 id="_4">遍历数据集</h2>
+<h3 id="遍历数据集">遍历数据集<a class="headerlink" href="#遍历数据集" title="Permanent link">&para;</a></h3>
 <p>把上面的你同放在一起，创建一个带有组合变换的数据集。
 总而言之，每次从这个数据集采用的时候：</p>
 <ul>
@@ -1196,7 +1220,7 @@ First 4 Landmarks: [[32. 65.]
 </td></tr></table>
 
 <p><img alt="png" src="../data_loading_tutorial_files/data_loading_tutorial_18_1.png" /></p>
-<h2 id="torchvision">后记：torchvision</h2>
+<h3 id="后记torchvision">后记：torchvision<a class="headerlink" href="#后记torchvision" title="Permanent link">&para;</a></h3>
 <p>在这个教程中，我们已经看到了如何编写和使用<code>Dataset</code>,<code>transform</code>和<code>Dataloader</code>。</p>
 <p><code>torchvision</code>包提供了一些常用的数据集和变换方法，用它，甚至可能不用编写自己的类。</p>
 <p><code>torchvision</code>中还有更通用的数据集类型，其中一个是<code>ImageFolder</code>。

@@ -52,6 +52,8 @@
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
     
     
       
@@ -90,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#训练分类器" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -165,7 +167,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
           </div>
@@ -212,7 +214,7 @@
     </div>
   
   <div class="md-source__repository">
-    GitHub
+    tanbro/pytorch-tutorials-notebooks-zhs
   </div>
 </a>
     </div>
@@ -320,8 +322,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         训练分类器
@@ -335,21 +335,27 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="有关数据的问题" class="md-nav__link">
+  <a href="#训练分类器" title="训练分类器" class="md-nav__link">
+    训练分类器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#有关数据的问题" title="有关数据的问题" class="md-nav__link">
     有关数据的问题
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="训练图像分类器" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#训练图像分类器" title="训练图像分类器" class="md-nav__link">
     训练图像分类器
   </a>
   
@@ -357,35 +363,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-cifar10" title="1. 加载并规格化CIFAR10" class="md-nav__link">
+  <a href="#1-加载并规格化cifar10" title="1. 加载并规格化CIFAR10" class="md-nav__link">
     1. 加载并规格化CIFAR10
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-cnn" title="2. 定义卷及神经网络(CNN)" class="md-nav__link">
+  <a href="#2-定义卷及神经网络cnn" title="2. 定义卷及神经网络(CNN)" class="md-nav__link">
     2. 定义卷及神经网络(CNN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="3. 定义损失函数" class="md-nav__link">
+  <a href="#3-定义损失函数" title="3. 定义损失函数" class="md-nav__link">
     3. 定义损失函数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" title="4. 训练网络" class="md-nav__link">
+  <a href="#4-训练网络" title="4. 训练网络" class="md-nav__link">
     4. 训练网络
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5" title="5. 使用测试数据对网络进行测试" class="md-nav__link">
+  <a href="#5-使用测试数据对网络进行测试" title="5. 使用测试数据对网络进行测试" class="md-nav__link">
     5. 使用测试数据对网络进行测试
   </a>
   
@@ -395,9 +401,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu" title="在GPU上训练" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#在gpu上训练" title="在GPU上训练" class="md-nav__link">
     在GPU上训练
   </a>
   
@@ -405,7 +411,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="练习" class="md-nav__link">
+  <a href="#练习" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -415,18 +421,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu_1" title="在多个GPU上进行训练" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#在多个gpu上进行训练" title="在多个GPU上进行训练" class="md-nav__link">
     在多个GPU上进行训练
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="下一步怎么办？" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#下一步怎么办" title="下一步怎么办？" class="md-nav__link">
     下一步怎么办？
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -537,21 +548,27 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="有关数据的问题" class="md-nav__link">
+  <a href="#训练分类器" title="训练分类器" class="md-nav__link">
+    训练分类器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#有关数据的问题" title="有关数据的问题" class="md-nav__link">
     有关数据的问题
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="训练图像分类器" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#训练图像分类器" title="训练图像分类器" class="md-nav__link">
     训练图像分类器
   </a>
   
@@ -559,35 +576,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-cifar10" title="1. 加载并规格化CIFAR10" class="md-nav__link">
+  <a href="#1-加载并规格化cifar10" title="1. 加载并规格化CIFAR10" class="md-nav__link">
     1. 加载并规格化CIFAR10
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-cnn" title="2. 定义卷及神经网络(CNN)" class="md-nav__link">
+  <a href="#2-定义卷及神经网络cnn" title="2. 定义卷及神经网络(CNN)" class="md-nav__link">
     2. 定义卷及神经网络(CNN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" title="3. 定义损失函数" class="md-nav__link">
+  <a href="#3-定义损失函数" title="3. 定义损失函数" class="md-nav__link">
     3. 定义损失函数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" title="4. 训练网络" class="md-nav__link">
+  <a href="#4-训练网络" title="4. 训练网络" class="md-nav__link">
     4. 训练网络
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5" title="5. 使用测试数据对网络进行测试" class="md-nav__link">
+  <a href="#5-使用测试数据对网络进行测试" title="5. 使用测试数据对网络进行测试" class="md-nav__link">
     5. 使用测试数据对网络进行测试
   </a>
   
@@ -597,9 +614,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu" title="在GPU上训练" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#在gpu上训练" title="在GPU上训练" class="md-nav__link">
     在GPU上训练
   </a>
   
@@ -607,7 +624,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" title="练习" class="md-nav__link">
+  <a href="#练习" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -617,18 +634,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu_1" title="在多个GPU上进行训练" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#在多个gpu上进行训练" title="在多个GPU上进行训练" class="md-nav__link">
     在多个GPU上进行训练
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="下一步怎么办？" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#下一步怎么办" title="下一步怎么办？" class="md-nav__link">
     下一步怎么办？
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -651,10 +673,12 @@
                   <a href="https://github.com/tanbro/pytorch-tutorials-notebooks-zhs/edit/master/docs/beginner/blitz/cifar10_tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">训练分类器</h1>
+                  <h1>训练分类器</h1>
+                
+                <h2 id="训练分类器">训练分类器<a class="headerlink" href="#训练分类器" title="Permanent link">&para;</a></h2>
 <p>我们已经了解了如何定义神经网络，计算损耗并更新网络权重。</p>
 <p>现在你可能在想：</p>
-<h2 id="_2">有关数据的问题</h2>
+<h3 id="有关数据的问题">有关数据的问题<a class="headerlink" href="#有关数据的问题" title="Permanent link">&para;</a></h3>
 <p>通常，当处理图像、文字、音频或者视频数据的时候，可以使用标准的python包将数据加载到numpy数组中。然后可以将这个数组转换成一个<code>torch.*Tensor</code>。</p>
 <ul>
 <li>对于图像，Pillow，OpenCV等软件包很有用</li>
@@ -667,7 +691,7 @@
 CIFAR-10中的图像尺寸为3x32x32，即尺寸为32x32像素的3通道彩色图像。</p>
 <p><img alt="cifar10" src="https://pytorch.org/tutorials/_images/cifar10.png" /></p>
 <p>cifar10</p>
-<h2 id="_3">训练图像分类器</h2>
+<h3 id="训练图像分类器">训练图像分类器<a class="headerlink" href="#训练图像分类器" title="Permanent link">&para;</a></h3>
 <p>我们将按顺序执行以下步骤：</p>
 <ol>
 <li>用<code>torchvision</code>加载并规格化CIFAR10的训练和测试数据集</li>
@@ -676,7 +700,7 @@ CIFAR-10中的图像尺寸为3x32x32，即尺寸为32x32像素的3通道彩色�
 <li>使用训练数据训练网络</li>
 <li>使用测试数据测试网络</li>
 </ol>
-<h3 id="1-cifar10">1. 加载并规格化CIFAR10</h3>
+<h4 id="1-加载并规格化cifar10">1. 加载并规格化CIFAR10<a class="headerlink" href="#1-加载并规格化cifar10" title="Permanent link">&para;</a></h4>
 <p>用<code>torchvision</code>加载CIFAR10非常容易。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -783,7 +807,7 @@ Files already downloaded and verified
 </pre></div>
 </td></tr></table>
 
-<h3 id="2-cnn">2. 定义卷及神经网络(CNN)</h3>
+<h4 id="2-定义卷及神经网络cnn">2. 定义卷及神经网络(CNN)<a class="headerlink" href="#2-定义卷及神经网络cnn" title="Permanent link">&para;</a></h4>
 <p>从前文的神经网络章节复制代码，修改，让它采用3通道图像(而不是之前定义的1通道)</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -835,7 +859,7 @@ Files already downloaded and verified
 </pre></div>
 </td></tr></table>
 
-<h3 id="3">3. 定义损失函数</h3>
+<h4 id="3-定义损失函数">3. 定义损失函数<a class="headerlink" href="#3-定义损失函数" title="Permanent link">&para;</a></h4>
 <p>使用交叉熵损失和带有动量的SGD。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -847,7 +871,7 @@ Files already downloaded and verified
 </pre></div>
 </td></tr></table>
 
-<h3 id="4">4. 训练网络</h3>
+<h4 id="4-训练网络">4. 训练网络<a class="headerlink" href="#4-训练网络" title="Permanent link">&para;</a></h4>
 <p>事情开始变得有趣了。
 我们只需循环遍历数据迭代器，并将输入提供给网络并进行优化。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -934,7 +958,7 @@ Finished Training
 </pre></div>
 </td></tr></table>
 
-<h3 id="5">5. 使用测试数据对网络进行测试</h3>
+<h4 id="5-使用测试数据对网络进行测试">5. 使用测试数据对网络进行测试<a class="headerlink" href="#5-使用测试数据对网络进行测试" title="Permanent link">&para;</a></h4>
 <p>在训练数据集上已经对网络进行了两个纪元(epoch)的训练。
 但是我们还要进行检查，看看这个网络是否真的学会了什么。</p>
 <p>用这个神经网络进行预测，检查它输出的分类标签是否和实际值一直。如果预测正确，把样本加到正确预测列表。</p>
@@ -953,7 +977,7 @@ Finished Training
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">GroundTruth</span><span class="o">:</span>    <span class="n">cat</span>  <span class="n">ship</span>  <span class="n">ship</span> <span class="n">plane</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>GroundTruth:    cat  ship  ship plane
 </pre></div>
 </td></tr></table>
 
@@ -976,7 +1000,7 @@ Finished Training
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Predicted</span><span class="o">:</span>    <span class="n">cat</span>  <span class="n">ship</span>  <span class="n">ship</span>  <span class="n">ship</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Predicted:    cat  ship  ship  ship
 </pre></div>
 </td></tr></table>
 
@@ -1083,7 +1107,7 @@ Accuracy of truck : 73 %
 
 <p>好的，接下来呢？</p>
 <p>我们如何在GPU上运行这些神经网络？</p>
-<h2 id="gpu">在GPU上训练</h2>
+<h3 id="在gpu上训练">在GPU上训练<a class="headerlink" href="#在gpu上训练" title="Permanent link">&para;</a></h3>
 <p>就像将Tensor转到GPU一样，可将神经网络转到GPU。</p>
 <p>如果有可用的CUDA，我们首先获取第一个可见的cuda设备：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1098,7 +1122,7 @@ Accuracy of truck : 73 %
 </pre></div>
 </td></tr></table>
 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">cuda</span><span class="o">:</span><span class="mi">0</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cuda:0
 </pre></div>
 </td></tr></table>
 
@@ -1114,7 +1138,7 @@ Accuracy of truck : 73 %
 </td></tr></table>
 
 <p>可能观察不到与CPU相比的有明显加速，那是因为的网络太小。</p>
-<h3 id="_4">练习</h3>
+<h4 id="练习">练习<a class="headerlink" href="#练习" title="Permanent link">&para;</a></h4>
 <p>尝试增加网络的宽度（第一个<code>nn.Conv2d</code>的第二个参数，第二个<code>nn.Conv2d</code>的第一个参数——它们应是相同的数值），看看能获得什么样的加速。</p>
 <p><strong>达到的目标：</strong></p>
 <ul>
@@ -1255,9 +1279,9 @@ Finished Training
 </pre></div>
 </td></tr></table>
 
-<h2 id="gpu_1">在多个GPU上进行训练</h2>
+<h3 id="在多个gpu上进行训练">在多个GPU上进行训练<a class="headerlink" href="#在多个gpu上进行训练" title="Permanent link">&para;</a></h3>
 <p>如果想使用所有的GPU来大幅加速，请参考 data_parallel_tutorial。</p>
-<h2 id="_5">下一步怎么办？</h2>
+<h3 id="下一步怎么办">下一步怎么办？<a class="headerlink" href="#下一步怎么办" title="Permanent link">&para;</a></h3>
 <ul>
 <li>:doc:<code>Train neural nets to play video games &lt;/intermediate/reinforcement_q_learning&gt;</code></li>
 <li><code>Train a state-of-the-art ResNet network on imagenet</code>_</li>
