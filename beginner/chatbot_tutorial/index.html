@@ -42,12 +42,22 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
       
     
     
       <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
@@ -61,7 +71,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
@@ -611,6 +623,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intermediate/char_rnn_classification_tutorial/" title="使用字符级RNN对名字进行分类" class="md-nav__link">
+      使用字符级RNN对名字进行分类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intermediate/char_rnn_generation_tutorial/" title="使用字符级RNN生成名字" class="md-nav__link">
+      使用字符级RNN生成名字
+    </a>
   </li>
 
         
@@ -1795,7 +1831,7 @@ max_target_len: 5
 <p><a href="https://arxiv.org/abs/1409.3215">Sutskever 等人</a> 发现通过使用两个独立的递归神经网络(RNN)，我们可以完成这项任务。</p>
 <p>第一个 RNN 充当<strong>编码器</strong>，它将可变长度输入序列编码成固定长度的上下文向量。
 理论上，这个上下文向量（RNN的最终隐藏层）将包含关于输入给机器人的询问句的语义信息。</p>
-<p>第二个 RNN 是<strong>解码器</strong>，它采用输入词和上下文向量，并返回序列中后续词的猜测值，以及用于下次迭代的隐藏层。</p>
+<p>第二个 RNN 是<strong>解码器</strong>，它接收输入词和上下文向量，并返回序列中后续词的猜测值，以及用于下次迭代的隐藏层。</p>
 <p><img alt="model" src="https://jeddy92.github.io/images/ts_intro/seq2seq_ts.png" /></p>
 <p>图片来源：<a href="https://jeddy92.github.io/JEddy92.github.io/ts_seq2seq_intro/">https://jeddy92.github.io/JEddy92.github.io/ts_seq2seq_intro/</a></p>
 <h5 id="编码器">编码器<a class="headerlink" href="#编码器" title="Permanent link">&para;</a></h5>
@@ -2130,9 +2166,9 @@ max_target_len: 5
   所有，我们必须注意地如何设置<code>teacher_forcing_ratio</code>，不要被快速收敛欺骗。</p>
 </li>
 <li>
-<p>我们要实现的第二个技巧是<strong>梯度剪切</strong>。
+<p>我们要实现的第二个技巧是<strong>梯度裁剪</strong>。
   这是一种用于对抗“梯度爆炸”的常用技术。
-  本质上，通过剪切或者最大阈值，我们防止梯度爆炸性增长和溢出(NaN)，或者在成本函数中从悬崖跌落。</p>
+  本质上，通过裁剪或者设置最大阈值，我们可防止梯度爆炸性增长和溢出(NaN)，或者在成本函数中从悬崖跌落。</p>
 </li>
 </ul>
 <p><img alt="grad_clip" src="https://pytorch.org/tutorials/_images/grad_clip.png" /></p>
@@ -2142,14 +2178,14 @@ max_target_len: 5
 <li>通过编码器向前传递整个输入批次。</li>
 <li>将解码器输入初始化为<code>SOS_token</code>和编码器最终隐藏层的隐藏状态。</li>
 <li>在每个时间步骤中，通过解码器向前传递输入批的序列。</li>
-<li>如果用到了 &ldquo;tacher forcing&rdquo;：把下一个解码器输入作为当前目标；其它：用下一个解码器输入作为当前解码器输出。</li>
+<li>如果用到了 &ldquo;teacher forcing&rdquo;：将当前目标作为下一个解码器的输入；其它：将当前解码器输出作为下一个解码器的输入。</li>
 <li>计算和累积损失。</li>
 <li>进行反向传播</li>
 <li>剪切梯度。</li>
 <li>更新编码器和解码器模型的参数。</li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">注意</p>
+<p class="admonition-title">Note</p>
 <p>只需将 PyTorch RNN 模块(<code>RNN</code>, <code>LSTM</code>, <code>GRU</code>)的整个输入序列（或批次的序列）传入，它们就可以被用于任何其它类似的非递归层。
 我们在<code>encoder</code>中这样使用<code>GUR</code>层。
 实际情况是，在底层，每一个时间步骤上都有一个交互过程迭代计算隐藏状态。</p>
@@ -10820,6 +10856,20 @@ Iteration: 4000; Percent complete: 100.0%; Average loss: 2.4628
             </div>
           </a>
         
+        
+          <a href="../../intermediate/char_rnn_classification_tutorial/" title="使用字符级RNN对名字进行分类" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                使用字符级RNN对名字进行分类
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
