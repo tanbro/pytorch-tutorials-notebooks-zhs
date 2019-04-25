@@ -24,8 +24,8 @@ plugins:
 
 theme:
     name: material
-    font: False
     language: zh
+    # font: False
 
 extra:
     manifest: manifest.webmanifest
