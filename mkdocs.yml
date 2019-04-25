@@ -15,6 +15,7 @@ nav:
         - 迁移学习教程: beginner/transfer_learning_tutorial.md
     - 文本:
         - 聊天机器人教程: beginner/chatbot_tutorial.md
+        - 使用字符级RNN对名字进行分类: intermediate/char_rnn_classification_tutorial.md
         - 使用字符级RNN生成名字: intermediate/char_rnn_generation_tutorial.md
 
 plugins:
