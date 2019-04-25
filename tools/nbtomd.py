@@ -25,8 +25,8 @@ def parse_arguments():  # type:()->argparse.Namespace
 
 
 def execute(arguments):  # type:(argparse.Namespace)->None
-    root_input_dir = os.path.normpath(arguments.input_dir)
-    root_output_dir = os.path.normpath(arguments.output_dir)
+    root_input_dir = os.path.abspath(arguments.input_dir)
+    root_output_dir = os.path.abspath(arguments.output_dir)
     search_pat = os.path.join(root_input_dir, '**', '*.ipynb')
     for filepath in iglob(search_pat, recursive=True):
         dirname, _ = os.path.split(filepath)
