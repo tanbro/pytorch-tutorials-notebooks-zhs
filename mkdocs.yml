@@ -17,7 +17,7 @@ nav:
         - 聊天机器人教程: beginner/chatbot_tutorial.md
 
 plugins:
-    - search
+    - search:
     - pdf-export:
         enabled_if_env: MKDOCS_PDF_EXPORT
         combined: True
@@ -26,6 +26,9 @@ theme:
     name: material
     language: zh
     # font: False
+    palette:
+        primary: 'white'
+        accent: 'red'
 
 extra:
     manifest: manifest.webmanifest
@@ -34,28 +37,28 @@ extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML
 
 markdown_extensions:
-    - abbr
-    - admonition
-    - attr_list
+    - abbr:
+    - admonition:
+    - attr_list:
     - codehilite:
         guess_lang: False
         linenums: True
-    - def_list
-    - footnotes
-    - meta
-    - sane_lists
-    - smarty
+    - def_list:
+    - footnotes:
+    - meta:
+    - sane_lists:
+    - smarty:
     - toc:
         permalink: True
         baselevel: 2
         slugify: !!python/name:pymdownx.slugs.uslugify
-    - pymdownx.arithmatex
-    - pymdownx.caret
-    - pymdownx.details
-    - pymdownx.escapeall
-    - pymdownx.extra
-    - pymdownx.extrarawhtml
-    - pymdownx.keys
-    - pymdownx.mark
-    - pymdownx.striphtml
-    - pymdownx.smartsymbols
+    - pymdownx.arithmatex:
+    - pymdownx.caret:
+    - pymdownx.details:
+    - pymdownx.escapeall:
+    - pymdownx.extra:
+    - pymdownx.extrarawhtml:
+    - pymdownx.keys:
+    - pymdownx.mark:
+    - pymdownx.striphtml:
+    - pymdownx.smartsymbols:
