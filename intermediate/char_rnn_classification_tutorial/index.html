@@ -1000,8 +1000,7 @@ torch.Size([5, 1, 57])
 </pre></div>
 </td></tr></table>
 
-<p>As you can see the output is a <code>&lt;1 x n_categories&gt;</code> Tensor, where
-every item is the likelihood of that category (higher is more likely).</p>
+<p>可见输出值是一个 <code>&lt;1 x n_categories&gt;</code> 张量，其中的每一项都是对应类别的似然度（值越大越相似）。</p>
 <h3 id="训练">训练<a class="headerlink" href="#训练" title="Permanent link">&para;</a></h3>
 <h4 id="准备训练">准备训练<a class="headerlink" href="#准备训练" title="Permanent link">&para;</a></h4>
 <p>在进入训练之前，我们应该做编写一些辅助函数。
@@ -1433,10 +1432,7 @@ category = Japanese / line = Onoe
 </pre></div>
 </td></tr></table>
 
-<p>The final versions of the scripts <code>in the Practical PyTorch
-repo &lt;https://github.com/spro/practical-pytorch/tree/master/char-rnn-classification&gt;</code>__
-split the above code into a few files:
-文中这些代码块的最终版本在 <a href="https://github.com/spro/practical-pytorch/tree/master/char-rnn-classification">in the Practical PyTorch repo</a>
+<p>文中这些代码块的最终版本在 <a href="https://github.com/spro/practical-pytorch/tree/master/char-rnn-classification">in the Practical PyTorch repo</a>
 上面的代码被划分到了几个不同文件：</p>
 <ul>
 <li><code>data.py</code> (加载文件)</li>
